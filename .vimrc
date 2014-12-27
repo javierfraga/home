@@ -18,6 +18,7 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 Plugin 'Raimondi/delimitMate'
+Plugin 'kien/ctrlp.vim'
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
 " " plugin on GitHub repo
@@ -173,3 +174,10 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 "delimitMate setting
 let delimitMate_expand_cr = 1
+
+"CtrlP default mapping and the default command to invoke CtrlP
+"let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+"CtrlP will set its local working directory according to this variable
+let g:ctrlp_working_path_mode = 'ra'
