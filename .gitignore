@@ -1,0 +1,15 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!.alias
+!.bashrc
+!.git
+!.gitconfig
+!.gitrc
+!.vim
+!.vimrc
+!colorize-maven.sh
+!git-completion.bash
+!git-prompt.sh
