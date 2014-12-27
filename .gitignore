@@ -1,6 +1,3 @@
-# Ignore everything
-*
-
 # But not these files...
 !.gitignore
 !.alias
@@ -8,8 +5,13 @@
 !.git
 !.gitconfig
 !.gitrc
-!.vim
+!.vim/*
 !.vimrc
 !colorize-maven.sh
 !git-completion.bash
 !git-prompt.sh
+!test/
+!testfile
+# Ignore everything
+*
+
