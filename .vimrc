@@ -17,6 +17,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
+Plugin 'Raimondi/delimitMate'
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
 " " plugin on GitHub repo
@@ -165,6 +166,10 @@ let g:indentLine_char = '|'
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+
+"delimitMate setting
+let delimitMate_expand_cr = 1
