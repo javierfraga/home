@@ -176,8 +176,19 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 let delimitMate_expand_cr = 1
 
 "CtrlP default mapping and the default command to invoke CtrlP
-"let g:ctrlp_map = '<c-p>'
+let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-
-"CtrlP will set its local working directory according to this variable
+"
+""CtrlP will set its local working directory according to this variable
 let g:ctrlp_working_path_mode = 'ra'
+
+" window split
+nmap <leader>sw<left>  :topleft  vnew<CR>
+nmap <leader>sw<right> :botright vnew<CR>
+nmap <leader>sw<up>    :topleft  new<CR>
+nmap <leader>sw<down>  :botright new<CR>
+" buffer split
+nmap <leader>s<left>   :leftabove  vnew<CR>
+nmap <leader>s<right>  :rightbelow vnew<CR>
+nmap <leader>s<up>     :leftabove  new<CR>
+nmap <leader>s<down>   :rightbelow new<CR>
