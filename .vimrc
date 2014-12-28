@@ -184,15 +184,15 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
 " window split
-nmap <leader>sw<left>  :topleft  vnew<CR>
-nmap <leader>sw<right> :botright vnew<CR>
-nmap <leader>sw<up>    :topleft  new<CR>
-nmap <leader>sw<down>  :botright new<CR>
+nmap <leader>sw<left>  :topleft  vsplit<CR>
+nmap <leader>sw<right> :botright vsplit<CR>
+nmap <leader>sw<up>    :topleft  split<CR>
+nmap <leader>sw<down>  :botright split<CR>
 " buffer split
-nmap <leader>s<left>   :leftabove  vnew<CR>
-nmap <leader>s<right>  :rightbelow vnew<CR>
-nmap <leader>s<up>     :leftabove  new<CR>
-nmap <leader>s<down>   :rightbelow new<CR>
+nmap <leader>s<left>   :leftabove  vsplit<CR>
+nmap <leader>s<right>  :rightbelow vsplit<CR>
+nmap <leader>s<up>     :leftabove  split<CR>
+nmap <leader>s<down>   :rightbelow split<CR>
 
 " vim-airline smarter tab line
 let g:airline#extensions#tabline#enabled = 1
