@@ -193,3 +193,11 @@ nmap <leader>s<left>   :leftabove  vnew<CR>
 nmap <leader>s<right>  :rightbelow vnew<CR>
 nmap <leader>s<up>     :leftabove  new<CR>
 nmap <leader>s<down>   :rightbelow new<CR>
+
+" vim-airline smarter tab line
+let g:airline#extensions#tabline#enabled = 1
+
+""vim-airline statusline appear all the time
+set laststatus=2
+set encoding=utf-8
+
