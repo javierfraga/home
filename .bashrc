@@ -104,3 +104,6 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+# Anaconda install location:
+export PATH=/home/javier/updates/python-packages/anaconda/bin:$PATH

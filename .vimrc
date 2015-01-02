@@ -155,7 +155,7 @@ endif
 nmap tg <ESC>:tabprevious<CR>
 map tg <ESC>:tabprevious<CR>
 imap tg <ESC>:tabprevious<CR>
-
+inoremap jk <Esc>
 let mapleader=","
 map <C-n> <ESC>:NERDTreeToggle<CR>
 
