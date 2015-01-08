@@ -183,6 +183,9 @@ let g:ctrlp_cmd = 'CtrlP'
 ""CtrlP will set its local working directory according to this variable
 let g:ctrlp_working_path_mode = 'ra'
 
+" CtrlP will open multiple files in new tabs and switch to those tabs
+let g:ctrlp_open_multiple_files = 'tj'
+
 " window split
 nmap <leader>sw<left>  :topleft  vsplit<CR>
 nmap <leader>sw<right> :botright vsplit<CR>
