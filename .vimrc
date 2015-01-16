@@ -204,3 +204,6 @@ let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 set encoding=utf-8
 
+" debug ycmd server shutdown
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
