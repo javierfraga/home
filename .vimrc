@@ -20,6 +20,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
 Plugin 'dhruvasagar/vim-vinegar'
+Plugin 'chrisbra/csv.vim'
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
 " " plugin on GitHub repo
@@ -71,7 +72,7 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 set number
-set shiftwidth=4
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -181,10 +182,13 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 "
 ""CtrlP will set its local working directory according to this variable
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'r'
 
 " CtrlP will open multiple files in new tabs and switch to those tabs
 let g:ctrlp_open_multiple_files = 'tj'
+
+" Set this to 1 if you want CtrlP to scan for dotfiles and dotdirs: >
+let g:ctrlp_show_hidden = 1
 
 " window split
 nmap <leader>sw<left>  :topleft  vsplit<CR>
@@ -207,3 +211,11 @@ set encoding=utf-8
 " debug ycmd server shutdown
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
+
+" enable/disable csv integration for displaying the current column. >
+ let g:airline#extensions#csv#enabled = 1
+
+" change how columns are displayed. >
+  let g:airline#extensions#csv#column_display = 'Number' 
+  let g:airline#extensions#csv#column_display = 'Name'
+
