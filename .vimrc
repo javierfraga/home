@@ -21,6 +21,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
 Plugin 'dhruvasagar/vim-vinegar'
 Plugin 'chrisbra/csv.vim'
+Plugin 'vim-scripts/VisIncr'
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
 " " plugin on GitHub repo
@@ -219,3 +220,10 @@ let g:ycm_server_log_level = 'debug'
   let g:airline#extensions#csv#column_display = 'Number' 
   let g:airline#extensions#csv#column_display = 'Name'
 
+" If you want vim to auto-reload your configuration, you must add the following commands :
+" the grouping of autocommand is here to avoid *exponential* reloading if you
+" save several times your configuration.
+augroup myvimrchooks
+	au!
+	autocmd bufwritepost .vimrc source ~/.vimrc
+augroup END
