@@ -22,21 +22,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'dhruvasagar/vim-vinegar'
 Plugin 'chrisbra/csv.vim'
 Plugin 'vim-scripts/VisIncr'
-" " The following are examples of different formats supported.
-" " Keep Plugin commands between vundle#begin/end.
-" " plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" " plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" " Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" " git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" " The sparkup vim script is in a subdirectory of this repo called vim.
-" " Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" " Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
+Plugin 'godlygeek/tabular'
 
  " All of your Plugins must be added before the following line
  call vundle#end()            " required
@@ -191,6 +177,14 @@ let g:ctrlp_open_multiple_files = 'tj'
 " Set this to 1 if you want CtrlP to scan for dotfiles and dotdirs: >
 let g:ctrlp_show_hidden = 1
 
+" Where to put the new tab page when opening one: >
+"  a - after.
+"  b - before.
+"  c - the current tab page.
+"  l - the last tab page.
+"  f - the first tab page.
+let g:ctrlp_tabpage_position = 'ac'
+
 " window split
 nmap <leader>sw<left>  :topleft  vsplit<CR>
 nmap <leader>sw<right> :botright vsplit<CR>
@@ -227,3 +221,8 @@ augroup myvimrchooks
 	au!
 	autocmd bufwritepost .vimrc source ~/.vimrc
 augroup END
+
+nmap <leader>t= :Tabularize /=<CR>
+vmap <leader>t= :Tabularize /=<CR>
+nmap <leader>t: :Tabularize /:<CR>
+vmap <leader>t: :Tabularize /:<CR>
