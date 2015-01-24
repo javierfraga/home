@@ -170,9 +170,39 @@ let g:ctrlp_cmd = 'CtrlP'
 "
 ""CtrlP will set its local working directory according to this variable
 let g:ctrlp_working_path_mode = 'r'
+""  c - the directory of the current file.
+""  a - like 'c', but only applies when the current working directory outside of
+""      CtrlP isn't a direct ancestor of the directory of the current file.
+""  r - the nearest ancestor that contains one of these directories or files:
+""      .git .hg .svn .bzr _darcs
+""  w - begin finding a root from the current working directory outside of CtrlP
+""      instead of from the directory of the current file (default). Only applies
+""      when 'r' is also present.
+""  0 or <empty> - disable this feature.
 
 " CtrlP will open multiple files in new tabs and switch to those tabs
 let g:ctrlp_open_multiple_files = 'tj'
+" For the number:
+"   - If given, it'll be used as the maximum number of windows or tabs to create
+"     when opening the files (the rest will be opened as hidden buffers).
+"   - If not given, <c-o> will open all files, each in a new window or new tab.
+" For the letters:
+"   t - each file in a new tab.
+"   h - each file in a new horizontal split.
+"   v - each file in a new vertical split.
+"   i - all files as hidden buffers.
+"   j - after opening, jump to the first opened tab or window.
+"   r - open the first file in the current window, then the remaining files in
+"       new splits or new tabs depending on which of 'h', 'v' and 't' is also
+"       present.
+
+" Use this option to specify how the newly created file is to be opened when
+" pressing <c-y>: >
+let g:ctrlp_open_new_file = 't'
+" t - in a new tab.
+" h - in a new horizontal split.
+" v - in a new vertical split.
+" r - in the current window.
 
 " Set this to 1 if you want CtrlP to scan for dotfiles and dotdirs: >
 let g:ctrlp_show_hidden = 1
@@ -222,7 +252,7 @@ augroup myvimrchooks
 	autocmd bufwritepost .vimrc source ~/.vimrc
 augroup END
 
-nmap <leader>t= :Tabularize /=<CR>
-vmap <leader>t= :Tabularize /=<CR>
-nmap <leader>t: :Tabularize /:<CR>
-vmap <leader>t: :Tabularize /:<CR>
+nmap <leader>= :Tabularize /=<CR>
+vmap <leader>= :Tabularize /=<CR>
+nmap <leader>: :Tabularize /:<CR>
+vmap <leader>: :Tabularize /:<CR>
