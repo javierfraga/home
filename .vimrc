@@ -168,6 +168,11 @@ let delimitMate_expand_cr = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 "
+" Easy bindings for its various modes
+nmap <leader>b :CtrlPBuffer<cr>
+nmap <leader>bm :CtrlPMixed<cr>
+nmap <leader>ba :CtrlPMRU<cr>
+
 ""CtrlP will set its local working directory according to this variable
 let g:ctrlp_working_path_mode = 'r'
 ""  c - the directory of the current file.
@@ -176,9 +181,6 @@ let g:ctrlp_working_path_mode = 'r'
 ""  r - the nearest ancestor that contains one of these directories or files:
 ""      .git .hg .svn .bzr _darcs
 ""  w - begin finding a root from the current working directory outside of CtrlP
-""      instead of from the directory of the current file (default). Only applies
-""      when 'r' is also present.
-""  0 or <empty> - disable this feature.
 
 " CtrlP will open multiple files in new tabs and switch to those tabs
 let g:ctrlp_open_multiple_files = 'tj'
@@ -214,6 +216,9 @@ let g:ctrlp_show_hidden = 1
 "  l - the last tab page.
 "  f - the first tab page.
 let g:ctrlp_tabpage_position = 'ac'
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " window split
 nmap <leader>sw<left>  :topleft  vsplit<CR>
@@ -256,3 +261,4 @@ nmap <leader>= :Tabularize /=<CR>
 vmap <leader>= :Tabularize /=<CR>
 nmap <leader>: :Tabularize /:<CR>
 vmap <leader>: :Tabularize /:<CR>
+
