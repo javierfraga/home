@@ -173,6 +173,15 @@ nmap <leader>b :CtrlPBuffer<cr>
 nmap <leader>bm :CtrlPMixed<cr>
 nmap <leader>ba :CtrlPMRU<cr>
 
+" To open a new empty buffer
+nmap <leader>T :enew<cr>
+
+" " Move to the next buffer
+nmap <leader>k :bnext<CR>
+
+" " Move to the previous buffer
+nmap <leader>j :bprevious<CR>
+
 ""CtrlP will set its local working directory according to this variable
 let g:ctrlp_working_path_mode = 'r'
 ""  c - the directory of the current file.
