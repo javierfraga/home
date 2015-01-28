@@ -10,6 +10,7 @@ filetype off                  " required
  " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'bling/vim-airline'
 Plugin 'Yggdroot/indentLine'
@@ -60,6 +61,7 @@ endif
 set nocompatible
 set number
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+autocmd FileType xml setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -192,7 +194,7 @@ let g:ctrlp_working_path_mode = 'r'
 ""  w - begin finding a root from the current working directory outside of CtrlP
 
 " CtrlP will open multiple files in new tabs and switch to those tabs
-let g:ctrlp_open_multiple_files = 'tj'
+let g:ctrlp_open_multiple_files = 'ij'
 " For the number:
 "   - If given, it'll be used as the maximum number of windows or tabs to create
 "     when opening the files (the rest will be opened as hidden buffers).
