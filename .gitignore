@@ -9,7 +9,8 @@
 !.gitrc
 !.vim/
 !.vim/*
-!.vim/*/*
+!.vim/indent/*
+!.vim/bundle/Vundle.vim/
 #!.vim/*/* #note this is needed to add the .vim directory itself and top level inside
 !.vimrc
 !colorize-maven.sh
