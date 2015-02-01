@@ -184,6 +184,9 @@ nmap <leader>k :bnext<CR>
 " " Move to the previous buffer
 nmap <leader>j :bprevious<CR>
 
+"" This allows buffers to be hidden if you've modified a buffer.
+set hidden
+
 ""CtrlP will set its local working directory according to this variable
 let g:ctrlp_working_path_mode = 'r'
 ""  c - the directory of the current file.
@@ -273,3 +276,7 @@ vmap <leader>= :Tabularize /=<CR>
 nmap <leader>: :Tabularize /:<CR>
 vmap <leader>: :Tabularize /:<CR>
 
+" this is for html indentation i found this here:
+" http://www.vim.org/scripts/script.php?script_id=2075
+" You can add further tags with:
+let g:html_indent_inctags = "html,body,head,tbody,script"
