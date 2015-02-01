@@ -11,7 +11,7 @@
 !.vim/*
 !.vim/indent/*
 # this file to install vundle
-!.README-vundle
+!.README-vundle-39
 #!.vim/*/* #note this is needed to add the .vim directory itself and top level inside
 !.vimrc
 !colorize-maven.sh
