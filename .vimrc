@@ -280,3 +280,6 @@ vmap <leader>: :Tabularize /:<CR>
 " http://www.vim.org/scripts/script.php?script_id=2075
 " You can add further tags with:
 let g:html_indent_inctags = "html,body,head,tbody,script"
+
+" You should at least change prefix key like this 
+map <Leader>s <Plug>(easymotion-s)
