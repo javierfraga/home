@@ -179,10 +179,10 @@ nmap <leader>ba :CtrlPMRU<cr>
 nmap <leader>T :enew<cr>
 
 " " Move to the next buffer
-nmap <leader>k :bnext<CR>
+nmap <leader>. :bnext<CR>
 
 " " Move to the previous buffer
-nmap <leader>j :bprevious<CR>
+nmap <leader>m :bprevious<CR>
 
 "" This allows buffers to be hidden if you've modified a buffer.
 set hidden
