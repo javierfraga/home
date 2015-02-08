@@ -179,7 +179,7 @@ nmap <leader>ba :CtrlPMRU<cr>
 nmap <leader>T :enew<cr>
 
 " " Move to the next buffer
-nmap <leader>. :bnext<CR>
+nmap <leader>k :bnext<CR>
 
 " " Move to the previous buffer
 nmap <leader>m :bprevious<CR>
