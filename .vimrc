@@ -279,7 +279,7 @@ vmap <leader>: :Tabularize /:<CR>
 " this is for html indentation i found this here:
 " http://www.vim.org/scripts/script.php?script_id=2075
 " You can add further tags with:
-let g:html_indent_inctags = "html,body,head,tbody,script"
+let g:html_indent_inctags = "body,tbody,script"
 
 " You should at least change prefix key like this 
 map <Leader>s <Plug>(easymotion-s)
