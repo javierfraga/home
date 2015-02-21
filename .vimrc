@@ -18,6 +18,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
+Plugin 'matthewsimo/angular-vim-snippets'
 Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
 Plugin 'dhruvasagar/vim-vinegar'
@@ -162,6 +163,20 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+
+"Defines the directory private snippet definition
+"files are stored in. For example, if the variable
+"is set to '~/.vim/mydir/UltiSnips' and the current
+"'filetype' is 'cpp', then :UltiSnipsEdit will open
+""~/.vim/mydir/UltiSnips/cpp.snippets". Note that
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+
+" THIS ONE NOT WORKING :( Needs to be done manually inside a session
+"The UltiSnipsAddFiletypes command allows for explicit merging of other snippet
+"filetypes for the current buffer. For example, if you edit a .rst file but
+"also want the Lua snippets to be available you can issue the command >
+"The priority will then be html -> xml -> all.
+let g:UltiSnipsAddFiletypes='html.xml'
 
 "delimitMate setting
 let delimitMate_expand_cr = 1
