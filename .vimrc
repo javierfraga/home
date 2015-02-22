@@ -19,6 +19,9 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 Plugin 'matthewsimo/angular-vim-snippets'
+" pangloss/vim-javascript - 'Vastly improved Javascript indentation and syntax support in Vim.'
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
 Plugin 'dhruvasagar/vim-vinegar'
@@ -62,6 +65,7 @@ endif
 set nocompatible
 set number
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 autocmd FileType xml setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -203,7 +207,7 @@ nmap <leader>m :bprevious<CR>
 set hidden
 
 ""CtrlP will set its local working directory according to this variable
-let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_working_path_mode = 'a'
 ""  c - the directory of the current file.
 ""  a - like 'c', but only applies when the current working directory outside of
 ""      CtrlP isn't a direct ancestor of the directory of the current file.
@@ -298,3 +302,10 @@ let g:html_indent_inctags = "body,tbody,script"
 
 " You should at least change prefix key like this 
 map <Leader>s <Plug>(easymotion-s)
+
+" pangloss/vim-javascript Enables HTML/CSS syntax highlighting in your
+" JavaScript file.
+let g:javascript_enable_domhtmlcss=1
+
+" othree/javascript-libraries-syntax.vim
+let g:used_javascript_libs = 'angularjs,underscore,backbone,jasmine,requirejs'
