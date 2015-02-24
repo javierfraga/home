@@ -196,15 +196,13 @@ nmap <leader>bm :CtrlPMixed<cr>
 nmap <leader>ba :CtrlPMRU<cr>
 
 " To open a new empty buffer
-nmap <leader>k :enew<cr>
+nmap <leader>m :enew<cr>
 
 " " Move to the next buffer
-"nmap <leader>k :bnext<CR>
 nmap <C-l> :bnext<CR>
 nmap <F12> :bnext<CR>
 
 " " Move to the previous buffer
-"nmap <leader>m :bprevious<CR>
 nmap <C-j> :bprevious<CR>
 nmap <F11> :bprevious<CR>
 
@@ -306,7 +304,7 @@ vmap <leader>: :Tabularize /:<CR>
 let g:html_indent_inctags = "body,tbody,script"
 
 " You should at least change prefix key like this 
-map <Leader>f <Plug>(easymotion-s)
+map <leader>k <Plug>(easymotion-s)
 
 " pangloss/vim-javascript Enables HTML/CSS syntax highlighting in your
 " JavaScript file.
