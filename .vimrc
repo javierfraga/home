@@ -201,10 +201,12 @@ nmap <leader>k :enew<cr>
 " " Move to the next buffer
 "nmap <leader>k :bnext<CR>
 nmap <C-l> :bnext<CR>
+nmap <F12> :bnext<CR>
 
 " " Move to the previous buffer
 "nmap <leader>m :bprevious<CR>
-nmap <C-h> :bprevious<CR>
+nmap <C-j> :bprevious<CR>
+nmap <F11> :bprevious<CR>
 
 "" This allows buffers to be hidden if you've modified a buffer.
 set hidden
@@ -318,3 +320,8 @@ nmap ]q :cnext<CR>
 map ]q :cnext<CR>
 nmap [q :cprev<CR>
 map [q :cprev<CR>
+
+" burnettk/vim-angular
+" Jump to definition of service/directive/controller/etc
+" assume your filenames are dasherized (likeABoss or LikeABoss goes to like-a-boss.js)
+let g:angular_filename_convention = 'camelcased'
