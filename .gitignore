@@ -15,7 +15,7 @@
 !.README-vundle-39
 #!.vim/*/* #note this is needed to add the .vim directory itself and top level inside
 !.vimrc
-!colorize-maven.sh
+!mvn-color.sh
 !git-completion.bash
 !git-prompt.sh
 !testdirectory
