@@ -21,6 +21,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'matthewsimo/angular-vim-snippets'
 " pangloss/vim-javascript - 'Vastly improved Javascript indentation and syntax support in Vim.'
 Plugin 'pangloss/vim-javascript'
+Plugin 'burnettk/vim-angular'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
@@ -195,19 +196,21 @@ nmap <leader>bm :CtrlPMixed<cr>
 nmap <leader>ba :CtrlPMRU<cr>
 
 " To open a new empty buffer
-nmap <leader>T :enew<cr>
+nmap <leader>k :enew<cr>
 
 " " Move to the next buffer
-nmap <leader>k :bnext<CR>
+"nmap <leader>k :bnext<CR>
+nmap <C-l> :bnext<CR>
 
 " " Move to the previous buffer
-nmap <leader>m :bprevious<CR>
+"nmap <leader>m :bprevious<CR>
+nmap <C-h> :bprevious<CR>
 
 "" This allows buffers to be hidden if you've modified a buffer.
 set hidden
 
 ""CtrlP will set its local working directory according to this variable
-let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_working_path_mode = 'r'
 ""  c - the directory of the current file.
 ""  a - like 'c', but only applies when the current working directory outside of
 ""      CtrlP isn't a direct ancestor of the directory of the current file.
@@ -301,7 +304,7 @@ vmap <leader>: :Tabularize /:<CR>
 let g:html_indent_inctags = "body,tbody,script"
 
 " You should at least change prefix key like this 
-map <Leader>s <Plug>(easymotion-s)
+map <Leader>f <Plug>(easymotion-s)
 
 " pangloss/vim-javascript Enables HTML/CSS syntax highlighting in your
 " JavaScript file.
@@ -309,3 +312,9 @@ let g:javascript_enable_domhtmlcss=1
 
 " othree/javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'angularjs,underscore,backbone,jasmine,requirejs'
+
+" :bufdo vimgrepadd text % | copen, cnext and cprev 
+nmap ]q :cnext<CR>
+map ]q :cnext<CR>
+nmap [q :cprev<CR>
+map [q :cprev<CR>
