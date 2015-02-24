@@ -42,3 +42,5 @@ alias chrome.work='/cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application
 alias picture='/usr/bin/kolourpaint'
 alias anaconda='export PATH=/home/javier/updates/python-packages/anaconda/bin:$PATH'
 alias csv='/usr/bin/calligrasheets'
+alias angularjs='cd /home/javier/documents/angularjs'
+alias server='python -m SimpleHTTPServer'
