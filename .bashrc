@@ -72,7 +72,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    alias ls='ls --color=auto -F'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
 
@@ -107,3 +107,11 @@ fi
 
 # Anaconda install location:
 #export PATH=/home/javier/updates/python-packages/anaconda/bin:$PATH
+
+# Install npm packages globally without sudo on OS X and Linux
+NPM_PACKAGES="${HOME}/.npm-packages"
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+PATH="$NPM_PACKAGES/bin:$PATH"
+
+# karma chrome path for webdriver
+export CHROME_BIN=/usr/bin/google-chrome-stable

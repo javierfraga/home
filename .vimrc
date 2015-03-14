@@ -29,6 +29,8 @@ Plugin 'dhruvasagar/vim-vinegar'
 Plugin 'chrisbra/csv.vim'
 Plugin 'vim-scripts/VisIncr'
 Plugin 'godlygeek/tabular'
+Plugin 'kana/vim-arpeggio'
+Plugin 'tpope/vim-repeat'
 
  " All of your Plugins must be added before the following line
  call vundle#end()            " required
@@ -70,6 +72,20 @@ autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 autocmd FileType xml setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+"set spell
+"" Ignore CamelCase words when spell checking
+"fun! IgnoreCamelCaseSpell()
+	"syn match CamelCase /\<[A-Z][a-z]\+[A-Z].\{-}\>/ contains=@NoSpell
+	"transparent
+	"syn cluster Spell add=CamelCase
+"endfun
+"autocmd BufRead,BufNewFile * :call IgnoreCamelCaseSpell()
+
+
+" check file change every 4 seconds ('CursorHold') and reload the buffer upon
+" detecting change
+set autoread
+au CursorHold * checktime 
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
@@ -162,7 +178,7 @@ let g:indentLine_char = '|'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
@@ -192,25 +208,45 @@ let g:ctrlp_cmd = 'CtrlP'
 "
 " Easy bindings for its various modes
 nmap <leader>b :CtrlPBuffer<cr>
-nmap <leader>bm :CtrlPMixed<cr>
-nmap <leader>ba :CtrlPMRU<cr>
+nmap <leader>ba :CtrlPMixed<cr>
+nmap <leader>bm :CtrlPMRU<cr>
 
-" To open a new empty buffer
-nmap <leader>m :enew<cr>
+" " Window remap to something more comfortable
+nmap <SPACE>w <C-w>
+
+" " Page Scroll Up
+nnoremap <Plug>scrollUp <C-u>
+			\:cal repeat#set("\<Plug>scrollUp")<CR>
+nmap <SPACE>u <Plug>scrollUp
+
+" " Page Scroll Down
+nnoremap <Plug>scrollDown <C-d>
+			\:cal repeat#set("\<Plug>scrollDown")<CR>
+nmap <SPACE>d <Plug>scrollDown
+
+" " Go to last buffer
+nmap <F11> <C-^>
+nnoremap <Plug>bufferLast <C-^>
+			\:cal repeat#set("\<Plug>bufferLast")<CR>
+nmap <SPACE>k <Plug>bufferLast
 
 " " Move to the next buffer
-nmap <C-l> :bnext<CR>
 nmap <F12> :bnext<CR>
+nnoremap <Plug>bufferRight :bnext<CR>
+			\:cal repeat#set("\<Plug>bufferRight")<CR>
+nmap <SPACE>l <Plug>bufferRight
 
 " " Move to the previous buffer
-nmap <C-j> :bprevious<CR>
-nmap <F11> :bprevious<CR>
+nmap <F10> :bprevious<CR>
+nnoremap <Plug>bufferLeft :bprevious<CR>
+			\:cal repeat#set("\<Plug>bufferLeft")<CR>
+nmap <SPACE>j <Plug>bufferLeft
 
 "" This allows buffers to be hidden if you've modified a buffer.
 set hidden
 
 ""CtrlP will set its local working directory according to this variable
-let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_working_path_mode = 'c'
 ""  c - the directory of the current file.
 ""  a - like 'c', but only applies when the current working directory outside of
 ""      CtrlP isn't a direct ancestor of the directory of the current file.
@@ -257,15 +293,15 @@ let g:ctrlp_tabpage_position = 'ac'
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " window split
-nmap <leader>sw<left>  :topleft  vsplit<CR>
-nmap <leader>sw<right> :botright vsplit<CR>
-nmap <leader>sw<up>    :topleft  split<CR>
-nmap <leader>sw<down>  :botright split<CR>
+nmap <leader>swh  :topleft  vsplit<CR>
+nmap <leader>swl :botright vsplit<CR>
+nmap <leader>swj    :topleft  split<CR>
+nmap <leader>swk  :botright split<CR>
 " buffer split
-nmap <leader>s<left>   :leftabove  vsplit<CR>
-nmap <leader>s<right>  :rightbelow vsplit<CR>
-nmap <leader>s<up>     :leftabove  split<CR>
-nmap <leader>s<down>   :rightbelow split<CR>
+nmap <leader>sh   :leftabove  vsplit<CR>
+nmap <leader>sl  :rightbelow vsplit<CR>
+nmap <leader>sk     :leftabove  split<CR>
+nmap <leader>sj   :rightbelow split<CR>
 
 " vim-airline smarter tab line
 let g:airline#extensions#tabline#enabled = 1
@@ -304,14 +340,15 @@ vmap <leader>: :Tabularize /:<CR>
 let g:html_indent_inctags = "body,tbody,script"
 
 " You should at least change prefix key like this 
-map <leader>k <Plug>(easymotion-s)
+"map <leader>k <Plug>(easymotion-s)
+map f <Plug>(easymotion-s)
 
 " pangloss/vim-javascript Enables HTML/CSS syntax highlighting in your
 " JavaScript file.
 let g:javascript_enable_domhtmlcss=1
 
 " othree/javascript-libraries-syntax.vim
-let g:used_javascript_libs = 'angularjs,underscore,backbone,jasmine,requirejs'
+let g:used_javascript_libs = 'jquery,angularjs,underscore,backbone,jasmine,requirejs'
 
 " :bufdo vimgrepadd text % | copen, cnext and cprev 
 nmap ]q :cnext<CR>

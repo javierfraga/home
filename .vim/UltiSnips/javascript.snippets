@@ -9,7 +9,7 @@ endsnippet
 
 snippet a "JSON Array"
 [
-	${VISUAL}$1
+	${VISUAL}${1}
 ]${2:,}
 ${0}
 endsnippet
@@ -27,4 +27,25 @@ endsnippet
 snippet oi "JSON Object in-line"
 { ${VISUAL}$1 }${2:,}
 ${0}
+endsnippet
+
+######################
+#  Jasmine snippets  #
+######################
+snippet eu "expect to be undefined (js)" b
+expect(${1:target}).toBeUndefined();
+endsnippet
+
+#########################
+#  javaScript snippets  #
+#########################
+
+
+
+############
+#  jQuery  #
+############
+snippet fadetog
+	$('${1:selector}').fadeToggle('${2:slow/400/fast}')${3:;}
+	${0}
 endsnippet
