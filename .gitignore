@@ -18,5 +18,14 @@
 !mvn-color.sh
 !git-completion.bash
 !git-prompt.sh
-!testdirectory
-!testdirectory/*
+!.npm-packages/
+!.npm-packages/*
+!.npm-packages/*/*
+
+# this will add any files in test-dir/, if they exist
+!test-dir
+!test-dir/*
+# this will add any files in test-dir/ one level deep, if they exist
+!test-dir/*/*
+# this will add ALL files in test-dir/ 
+!test-dir/**
