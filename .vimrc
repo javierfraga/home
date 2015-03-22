@@ -34,8 +34,10 @@ Plugin 'marijnh/tern_for_vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'matthewsimo/angular-vim-snippets'
-" not using but would like to improve
-Plugin 'chrisbra/csv.vim'
+" not using but would like to improve or use in future or just try later
+"Plugin 'chrisbra/csv.vim'
+"Plugin 'tpope/vim-unimpaired'
+
 
  " All of your Plugins must be added before the following line
  call vundle#end()            " required
