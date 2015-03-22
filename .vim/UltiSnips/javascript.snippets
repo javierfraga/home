@@ -49,3 +49,11 @@ snippet fadetog
 	$('${1:selector}').fadeToggle('${2:slow/400/fast}')${3:;}
 	${0}
 endsnippet
+
+snippet plugin "jQuery plugin" b
+(function($){
+	$.fn.${1:functionName} = function (${2:e}){
+		${0://enter code here}
+	}
+})(jQuery);
+endsnippet

@@ -9,28 +9,33 @@ filetype off                  " required
 
  " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+" navigation
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'dhruvasagar/vim-vinegar'
+" styling
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'Yggdroot/indentLine'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-Plugin 'matthewsimo/angular-vim-snippets'
-" pangloss/vim-javascript - 'Vastly improved Javascript indentation and syntax support in Vim.'
 Plugin 'pangloss/vim-javascript'
 Plugin 'burnettk/vim-angular'
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'elzr/vim-json'
 Plugin 'Raimondi/delimitMate'
-Plugin 'kien/ctrlp.vim'
-Plugin 'dhruvasagar/vim-vinegar'
-Plugin 'chrisbra/csv.vim'
 Plugin 'vim-scripts/VisIncr'
 Plugin 'godlygeek/tabular'
+" absolute essentials
+Plugin 'bling/vim-airline'
 Plugin 'kana/vim-arpeggio'
 Plugin 'tpope/vim-repeat'
+" Autocompletion 
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'matthewsimo/angular-vim-snippets'
+" not using but would like to improve
+Plugin 'chrisbra/csv.vim'
 
  " All of your Plugins must be added before the following line
  call vundle#end()            " required
@@ -207,9 +212,9 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 "
 " Easy bindings for its various modes
-nmap <leader>b :CtrlPBuffer<cr>
-nmap <leader>ba :CtrlPMixed<cr>
-nmap <leader>bm :CtrlPMRU<cr>
+nmap <leader>f :CtrlPBuffer<cr>
+nmap <leader>fa :CtrlPMixed<cr>
+nmap <leader>fm :CtrlPMRU<cr>
 
 " " Window remap to something more comfortable
 nmap <SPACE>w <C-w>
@@ -340,7 +345,7 @@ vmap <leader>: :Tabularize /:<CR>
 let g:html_indent_inctags = "body,tbody,script"
 
 " You should at least change prefix key like this 
-"map <leader>k <Plug>(easymotion-s)
+map <leader>k <Plug>(easymotion-s)
 map f <Plug>(easymotion-s)
 
 " pangloss/vim-javascript Enables HTML/CSS syntax highlighting in your
