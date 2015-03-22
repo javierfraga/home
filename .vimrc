@@ -219,6 +219,29 @@ nmap <leader>fm :CtrlPMRU<cr>
 " " Window remap to something more comfortable
 nmap <SPACE>w <C-w>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                vim-repeats                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" " Window Shift Left
+nnoremap <Plug>moveWindowLeft <C-w>>
+			\:cal repeat#set("\<Plug>moveWindowLeft")<CR>
+nmap <SPACE>w<Left> <Plug>moveWindowLeft
+
+" " Window Shift Right
+nnoremap <Plug>moveWindowRight <C-w><
+			\:cal repeat#set("\<Plug>moveWindowRight")<CR>
+nmap <SPACE>w<Right> <Plug>moveWindowRight
+
+" " Window Shift Up
+nnoremap <Plug>moveWindowUp <C-w>-
+			\:cal repeat#set("\<Plug>moveWindowUp")<CR>
+nmap <SPACE>w<Up> <Plug>moveWindowUp
+
+" " Window Shift Down
+nnoremap <Plug>moveWindowDown <C-w>+
+			\:cal repeat#set("\<Plug>moveWindowDown")<CR>
+nmap <SPACE>w<Down> <Plug>moveWindowDown
+
 " " Page Scroll Up
 nnoremap <Plug>scrollUp <C-u>
 			\:cal repeat#set("\<Plug>scrollUp")<CR>
@@ -246,6 +269,7 @@ nmap <F10> :bprevious<CR>
 nnoremap <Plug>bufferLeft :bprevious<CR>
 			\:cal repeat#set("\<Plug>bufferLeft")<CR>
 nmap <SPACE>j <Plug>bufferLeft
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "" This allows buffers to be hidden if you've modified a buffer.
 set hidden
@@ -300,8 +324,8 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " window split
 nmap <leader>swh  :topleft  vsplit<CR>
 nmap <leader>swl :botright vsplit<CR>
-nmap <leader>swj    :topleft  split<CR>
-nmap <leader>swk  :botright split<CR>
+nmap <leader>swk    :topleft  split<CR>
+nmap <leader>swj  :botright split<CR>
 " buffer split
 nmap <leader>sh   :leftabove  vsplit<CR>
 nmap <leader>sl  :rightbelow vsplit<CR>
