@@ -45,3 +45,4 @@ alias anaconda='export PATH=/home/javier/updates/python-packages/anaconda/bin:$P
 alias csv='/usr/bin/calligrasheets'
 alias angularjs='cd ~/documents/angularjs'
 alias server='python -m SimpleHTTPServer'
+alias eclimd='~/documents/eclipse/eclimd'
