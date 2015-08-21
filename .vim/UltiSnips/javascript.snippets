@@ -3,30 +3,28 @@
 #########################################
 
 snippet s "JSON Element"
-${1:"${2:key}"}: ${3:"${4:value}"${5:,}}
-${0}
+${1:"${2:key}"}: ${3:"${4:value}"${5:,}}${0}
 endsnippet
 
 snippet a "JSON Array"
 [
-	${VISUAL}${1}
-]${2:,}
-${0}
+	${VISUAL}${2}
+]${1}${0}
 endsnippet
+
 snippet o "JSON Object"
 {
-	${VISUAL}$1
-}${2:,}
+	${VISUAL}$2
+}${1}
 ${0}
 endsnippet
 
 snippet ai "JSON Array in-line"
-[ ${VISUAL}$1 ]${2:,}
-${0}
+[ ${VISUAL}$2 ]${1}${0}
 endsnippet
+
 snippet oi "JSON Object in-line"
-{ ${VISUAL}$1 }${2:,}
-${0}
+{ ${VISUAL}$2 }${1}${0}
 endsnippet
 
 ######################
@@ -39,6 +37,13 @@ endsnippet
 #########################
 #  javaScript snippets  #
 #########################
+
+# overwrite from "vim-snippets"
+snippet fun "function (fun)"
+function ${1:function_name}(${2:argument}) {
+	${VISUAL}$0
+}${3}
+endsnippet
 
 
 
