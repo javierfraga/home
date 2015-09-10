@@ -115,3 +115,9 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 
 # karma chrome path for webdriver
 export CHROME_BIN=/usr/bin/google-chrome-stable
+
+# cygwin windows7 needed setting for tmux pane split and new window
+# http://unix.stackexchange.com/questions/12032/create-new-window-with-current-directory-in-tmux
+if [ "$(uname -o)" == "Cygwin" ]; then
+	PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+fi

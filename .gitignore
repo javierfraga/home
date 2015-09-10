@@ -7,6 +7,9 @@
 !.git
 !.gitconfig
 !.gitrc
+!.tmux.conf
+!.tmux-cygwin.conf
+!.tmux-linux.conf
 !.vim/
 !.vim/*
 !.vim/indent/*
