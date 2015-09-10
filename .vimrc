@@ -30,7 +30,7 @@ Plugin 'kana/vim-arpeggio'
 Plugin 'tpope/vim-repeat'
 " Autocompletion 
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'marijnh/tern_for_vim'
+"Plugin 'marijnh/tern_for_vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'matthewsimo/angular-vim-snippets'
@@ -227,50 +227,51 @@ nmap <SPACE>w <C-w>
 " " Window Shift Left
 nnoremap <Plug>moveWindowLeft <C-w>>
 			\:cal repeat#set("\<Plug>moveWindowLeft")<CR>
-nmap <SPACE>w<Left> <Plug>moveWindowLeft
+nmap <C-w><Left> <Plug>moveWindowLeft
 
 " " Window Shift Right
 nnoremap <Plug>moveWindowRight <C-w><
 			\:cal repeat#set("\<Plug>moveWindowRight")<CR>
-nmap <SPACE>w<Right> <Plug>moveWindowRight
+nmap <C-w><Right> <Plug>moveWindowRight
 
 " " Window Shift Up
 nnoremap <Plug>moveWindowUp <C-w>-
 			\:cal repeat#set("\<Plug>moveWindowUp")<CR>
-nmap <SPACE>w<Up> <Plug>moveWindowUp
+nmap <C-w><Up> <Plug>moveWindowUp
 
 " " Window Shift Down
 nnoremap <Plug>moveWindowDown <C-w>+
 			\:cal repeat#set("\<Plug>moveWindowDown")<CR>
-nmap <SPACE>w<Down> <Plug>moveWindowDown
+nmap <C-w><Down> <Plug>moveWindowDown
 
 " " Page Scroll Up
 nnoremap <Plug>scrollUp <C-u>
 			\:cal repeat#set("\<Plug>scrollUp")<CR>
-nmap <SPACE>u <Plug>scrollUp
+nmap <C-u> <Plug>scrollUp
 
 " " Page Scroll Down
 nnoremap <Plug>scrollDown <C-d>
 			\:cal repeat#set("\<Plug>scrollDown")<CR>
-nmap <SPACE>d <Plug>scrollDown
+nmap <C-d> <Plug>scrollDown
+"nmap <SPACE>d <Plug>scrollDown
 
 " " Go to last buffer
 nmap <F11> <C-^>
 nnoremap <Plug>bufferLast <C-^>
 			\:cal repeat#set("\<Plug>bufferLast")<CR>
-nmap <SPACE>k <Plug>bufferLast
+nmap <C-k> <Plug>bufferLast
 
 " " Move to the next buffer
 nmap <F12> :bnext<CR>
 nnoremap <Plug>bufferRight :bnext<CR>
 			\:cal repeat#set("\<Plug>bufferRight")<CR>
-nmap <SPACE>l <Plug>bufferRight
+nmap <C-l> <Plug>bufferRight
 
 " " Move to the previous buffer
 nmap <F10> :bprevious<CR>
 nnoremap <Plug>bufferLeft :bprevious<CR>
 			\:cal repeat#set("\<Plug>bufferLeft")<CR>
-nmap <SPACE>j <Plug>bufferLeft
+nmap <C-j> <Plug>bufferLeft
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "" This allows buffers to be hidden if you've modified a buffer.
