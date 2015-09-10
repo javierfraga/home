@@ -186,7 +186,7 @@ let g:indentLine_char = '|'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -225,12 +225,12 @@ nmap <SPACE>w <C-w>
 "                                vim-repeats                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " " Window Shift Left
-nnoremap <Plug>moveWindowLeft <C-w>>
+nnoremap <Plug>moveWindowLeft <C-w><
 			\:cal repeat#set("\<Plug>moveWindowLeft")<CR>
 nmap <C-w><Left> <Plug>moveWindowLeft
 
 " " Window Shift Right
-nnoremap <Plug>moveWindowRight <C-w><
+nnoremap <Plug>moveWindowRight <C-w>>
 			\:cal repeat#set("\<Plug>moveWindowRight")<CR>
 nmap <C-w><Right> <Plug>moveWindowRight
 
@@ -392,3 +392,26 @@ map [q :cprev<CR>
 " Jump to definition of service/directive/controller/etc
 " assume your filenames are dasherized (likeABoss or LikeABoss goes to like-a-boss.js)
 let g:angular_filename_convention = 'camelcased'
+
+" remapping arrow keys
+" http://codingfearlessly.com/2012/08/21/vim-putting-arrows-to-use/
+nmap <Left> <<
+nmap <Right> >>
+vmap <Left> <gv
+vmap <Right> >gv
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   eclim                                    "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" make YCM and Eclim play nice
+let g:EclimCompletionMethod = 'omnifunc'
+
+" Import the class under the cursor
+nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
+
+" Search for the javadocs of the element under the cursor 
+nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
+
+" Perform a context sensitive search of the element under the cursor 
+nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
