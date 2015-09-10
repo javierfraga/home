@@ -79,7 +79,6 @@ autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 autocmd FileType xml setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-"set spell
 "" Ignore CamelCase words when spell checking
 "fun! IgnoreCamelCaseSpell()
 	"syn match CamelCase /\<[A-Z][a-z]\+[A-Z].\{-}\>/ contains=@NoSpell
@@ -133,7 +132,7 @@ if has("autocmd")
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
+  "filetype plugin indent on
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
@@ -177,6 +176,10 @@ imap tg <ESC>:tabprevious<CR>
 inoremap jk <Esc>
 let mapleader=","
 map <C-n> <ESC>:NERDTreeToggle<CR>
+
+set ignorecase
+"set spell
+"set nospell
 
 " vertical line indentation
 let g:indentLine_color_term = 239
@@ -225,52 +228,52 @@ nmap <SPACE>w <C-w>
 "                                vim-repeats                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " " Window Shift Left
-nnoremap <Plug>moveWindowLeft <C-w><
+nnoremap <Plug>moveWindowLeft <C-w>>
 			\:cal repeat#set("\<Plug>moveWindowLeft")<CR>
-nmap <SPACE>w<Left> <Plug>moveWindowLeft
+"nmap <SPACE>w<Left> <Plug>moveWindowLeft
 
 " " Window Shift Right
-nnoremap <Plug>moveWindowRight <C-w>>
+nnoremap <Plug>moveWindowRight <C-w><
 			\:cal repeat#set("\<Plug>moveWindowRight")<CR>
-nmap <SPACE>w<Right> <Plug>moveWindowRight
+"nmap <SPACE>w<Right> <Plug>moveWindowRight
 
 " " Window Shift Up
 nnoremap <Plug>moveWindowUp <C-w>-
 			\:cal repeat#set("\<Plug>moveWindowUp")<CR>
-nmap <SPACE>w<Up> <Plug>moveWindowUp
+"nmap <SPACE>w<Up> <Plug>moveWindowUp
 
 " " Window Shift Down
 nnoremap <Plug>moveWindowDown <C-w>+
 			\:cal repeat#set("\<Plug>moveWindowDown")<CR>
-nmap <SPACE>w<Down> <Plug>moveWindowDown
+"nmap <SPACE>w<Down> <Plug>moveWindowDown
 
 " " Page Scroll Up
 nnoremap <Plug>scrollUp <C-u>
 			\:cal repeat#set("\<Plug>scrollUp")<CR>
-nmap <SPACE>u <Plug>scrollUp
+"nmap <SPACE>u <Plug>scrollUp
 
 " " Page Scroll Down
 nnoremap <Plug>scrollDown <C-d>
 			\:cal repeat#set("\<Plug>scrollDown")<CR>
-nmap <SPACE>d <Plug>scrollDown
+"nmap <SPACE>d <Plug>scrollDown
 
 " " Go to last buffer
 nmap <F11> <C-^>
 nnoremap <Plug>bufferLast <C-^>
 			\:cal repeat#set("\<Plug>bufferLast")<CR>
-nmap <SPACE>k <Plug>bufferLast
+"nmap <SPACE>k <Plug>bufferLast
 
 " " Move to the next buffer
 nmap <F12> :bnext<CR>
 nnoremap <Plug>bufferRight :bnext<CR>
 			\:cal repeat#set("\<Plug>bufferRight")<CR>
-nmap <SPACE>l <Plug>bufferRight
+"nmap <SPACE>l <Plug>bufferRight
 
 " " Move to the previous buffer
 nmap <F10> :bprevious<CR>
 nnoremap <Plug>bufferLeft :bprevious<CR>
 			\:cal repeat#set("\<Plug>bufferLeft")<CR>
-nmap <SPACE>j <Plug>bufferLeft
+"nmap <SPACE>j <Plug>bufferLeft
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "" This allows buffers to be hidden if you've modified a buffer.
@@ -369,6 +372,7 @@ vmap <leader>: :Tabularize /:<CR>
 " http://www.vim.org/scripts/script.php?script_id=2075
 " You can add further tags with:
 let g:html_indent_inctags = "body,tbody,script"
+let g:html_indent_zerotags = "meta,head" 
 
 " You should at least change prefix key like this 
 map <leader>k <Plug>(easymotion-s)
