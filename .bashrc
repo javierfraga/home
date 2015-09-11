@@ -121,3 +121,8 @@ export CHROME_BIN=/usr/bin/google-chrome-stable
 if [ "$(uname -o)" == "Cygwin" ]; then
 	PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 fi
+
+# set default editor, neovim only for linux
+if [ "$(uname -a)" == "Linux" ]; then
+	export EDITOR=nvim
+fi
