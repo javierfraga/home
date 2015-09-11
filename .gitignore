@@ -24,6 +24,7 @@
 !mvn-color.sh
 !git-completion.bash
 !git-prompt.sh
+!xcape
 !.npm-packages/
 !.npm-packages/*
 !.npm-packages/*/*
