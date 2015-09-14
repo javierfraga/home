@@ -21,6 +21,7 @@
 #!.vim/*/* #note this is needed to add the .vim directory itself and top level inside
 !.nvimrc
 !.vimrc
+!battery
 !mvn-color.sh
 !git-completion.bash
 !git-prompt.sh
