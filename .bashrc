@@ -123,6 +123,6 @@ if [ "$(uname -o)" == "Cygwin" ]; then
 fi
 
 # set default editor, neovim only for linux
-if [ "$(uname -a)" == "Linux" ]; then
+if [ "$(uname -s)" == "Linux" ]; then
 	export EDITOR=nvim
 fi
