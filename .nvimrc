@@ -25,6 +25,7 @@ Plugin 'elzr/vim-json'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-scripts/VisIncr'
 Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-surround'
 " absolute essentials
 Plugin 'bling/vim-airline'
 Plugin 'kana/vim-arpeggio'
