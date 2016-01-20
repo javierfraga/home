@@ -4,6 +4,7 @@
 !.gitignore
 !.alias
 !.bashrc
+!.bash_profile
 !.git
 !.gitconfig
 !.gitrc
