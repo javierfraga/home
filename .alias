@@ -51,3 +51,4 @@ alias eclimd='~/documents/eclipse/eclimd'
 alias apache-me="sudo ln -s $PWD /var/www/htdocs/"
 alias gitignore="git clone https://gist.github.com/46edd3183edf2cf62fd2.git; cat 46edd3183edf2cf62fd2/.gitignore >> .gitignore ; rm -rf 46edd3183edf2cf62fd2/"
 alias gits='git status'
+alias xcape-me='~/xcape'
