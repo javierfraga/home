@@ -26,6 +26,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'vim-scripts/VisIncr'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
 " absolute essentials
 Plugin 'bling/vim-airline'
 Plugin 'kana/vim-arpeggio'
@@ -39,7 +40,6 @@ Plugin 'honza/vim-snippets'
 Plugin 'matthewsimo/angular-vim-snippets'
 " not using but would like to improve or use in future or just try later
 "Plugin 'chrisbra/csv.vim'
-"Plugin 'tpope/vim-unimpaired'
 
 
  " All of your Plugins must be added before the following line
@@ -421,6 +421,10 @@ nmap <Left> <<
 nmap <Right> >>
 vmap <Left> <gv
 vmap <Right> >gv
+nmap <Up> [e
+nmap <Down> ]e
+vmap <Up> [egv
+vmap <Down> ]egv
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   eclim                                    "
