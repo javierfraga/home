@@ -79,6 +79,8 @@ autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 autocmd FileType xml setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+" Saving marks and jumps
+set viminfo='100,f1
 "" Ignore CamelCase words when spell checking
 "fun! IgnoreCamelCaseSpell()
 	"syn match CamelCase /\<[A-Z][a-z]\+[A-Z].\{-}\>/ contains=@NoSpell
@@ -223,6 +225,11 @@ nmap <leader>fm :CtrlPMRU<cr>
 
 " " Window remap to something more comfortable
 nmap <SPACE>w <C-w>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               copy and paste                               "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set clipboard=unnamedplus
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                vim-repeats                                 "
