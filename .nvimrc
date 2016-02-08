@@ -102,11 +102,16 @@ if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
   set backup		" keep a backup file
+  set backupdir=/tmp " keep backup file in /tmp
 endif
+set directory=/tmp "keeps swaps in /tmp"
+set patchmode=.original "keeps a copy of original file"
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
+set iskeyword+=-	"adds '-' to whole word for spinal case edits"
+set background=dark	" set color good for dark background, execute before :syntax on
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -380,6 +385,7 @@ let g:ycm_server_log_level = 'debug'
 augroup myvimrchooks
 	au!
 	autocmd bufwritepost .vimrc source ~/.vimrc
+	autocmd bufwritepost .nvimrc source ~/.config/nvim/init.vim
 augroup END
 
 nmap <leader>= :Tabularize /=<CR>
