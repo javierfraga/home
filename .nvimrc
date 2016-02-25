@@ -32,8 +32,10 @@ Plugin 'bling/vim-airline'
 Plugin 'kana/vim-arpeggio'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/DirDiff.vim'
+Plugin 'schickling/vim-bufonly'
 " Autocompletion 
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'beloglazov/vim-online-thesaurus'
 "Plugin 'marijnh/tern_for_vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -84,6 +86,7 @@ autocmd FileType xml setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 set backspace=indent,eol,start
 " Saving marks and jumps
 set viminfo='100,f1
+set dict+=/usr/share/dict/words
 "" Ignore CamelCase words when spell checking
 "fun! IgnoreCamelCaseSpell()
 	"syn match CamelCase /\<[A-Z][a-z]\+[A-Z].\{-}\>/ contains=@NoSpell
@@ -187,7 +190,7 @@ inoremap jk <Esc>
 let mapleader=","
 map <C-n> <ESC>:NERDTreeToggle<CR>
 
-set ignorecase
+set ignorecase smartcase
 "set spell
 "set nospell
 
@@ -366,7 +369,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 ""vim-airline statusline appear all the time
 set laststatus=2
-set encoding=utf-8
+"set encoding=utf-8
 
 " debug ycmd server shutdown
 let g:ycm_server_keep_logfiles = 1
