@@ -33,6 +33,7 @@ Plugin 'kana/vim-arpeggio'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/DirDiff.vim'
 Plugin 'schickling/vim-bufonly'
+Plugin 'chrisbra/vim-diff-enhanced'
 " Autocompletion 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'beloglazov/vim-online-thesaurus'
@@ -88,12 +89,34 @@ set backspace=indent,eol,start
 set viminfo='100,f1
 set dict+=/usr/share/dict/words
 "" Ignore CamelCase words when spell checking
-"fun! IgnoreCamelCaseSpell()
-	"syn match CamelCase /\<[A-Z][a-z]\+[A-Z].\{-}\>/ contains=@NoSpell
-	"transparent
-	"syn cluster Spell add=CamelCase
-"endfun
-"autocmd BufRead,BufNewFile * :call IgnoreCamelCaseSpell()
+fun! IgnoreCamelCaseSpell()
+	syn match CamelCase /\<[A-Z][a-z]\+[A-Z].\{-}\>/ contains=@NoSpell transparent
+	syn cluster Spell add=CamelCase
+endfun
+autocmd BufRead,BufNewFile * :call IgnoreCamelCaseSpell()
+
+
+" vimdiff whitespace removal
+set diffopt+=iwhite
+function! DiffW()
+let opt = ""
+ if &diffopt =~ "icase"
+   let opt = opt . "-i "
+ endif
+ if &diffopt =~ "iwhite"
+   let opt = opt . "-w " " vim uses -b by default
+ endif
+ silent execute "!diff -a --binary " . opt .
+   \ v:fname_in . " " . v:fname_new .  " > " . v:fname_out
+endfunction
+set diffexpr=DiffW()
+
+
+" file and path name copies custom commands
+command! DirChangeHere cd %:p:h
+command! DirNameGet redir @* | echo expand('%:p:h') | redir END
+command! FileNameGet redir @* | echo expand('%:t') | redir END
+command! FileFullPath redir @* | echo expand('%:p') | redir END
 
 
 " check file change every 4 seconds ('CursorHold') and reload the buffer upon
