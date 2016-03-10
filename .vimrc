@@ -112,10 +112,10 @@ set diffexpr=DiffW()
 
 
 " file and path name copies custom commands
-command! DirChangeHere cd %:p:h
-command! DirNameGet redir @+ | echo expand('%:p:h') | redir END | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:p:h') | redir END | let @* = substitute(@*,'\n','','g')
-command! FileNameGet redir @+ | echo expand('%:t') | redir END | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:t') | redir END | let @* = substitute(@*,'\n','','g')
-command! PathFull redir @+ | echo expand('%:p') | redir END | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:p') | redir END | let @* = substitute(@*,'\n','','g')
+command! ChangeDirHere cd %:p:h
+command! GetDirName redir @+ | echo expand('%:p:h') | redir END | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:p:h') | redir END | let @* = substitute(@*,'\n','','g')
+command! GetFileName redir @+ | echo expand('%:t') | redir END | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:t') | redir END | let @* = substitute(@*,'\n','','g')
+command! GetFullPath redir @+ | echo expand('%:p') | redir END | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:p') | redir END | let @* = substitute(@*,'\n','','g')
 
 
 " check file change every 4 seconds ('CursorHold') and reload the buffer upon
