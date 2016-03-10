@@ -131,6 +131,7 @@ set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set iskeyword+=-	"adds '-' to whole word for spinal case edits"
 set background=dark	" set color good for dark background, execute before :syntax on
+colorscheme delek
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
