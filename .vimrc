@@ -398,6 +398,9 @@ set laststatus=2
 " debug ycmd server shutdown
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
+" disable option to disable ycm if file is too big
+let g:ycm_disable_for_files_larger_than_kb = 0
+
 
 " enable/disable csv integration for displaying the current column. >
  let g:airline#extensions#csv#enabled = 1
