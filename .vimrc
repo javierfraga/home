@@ -37,6 +37,7 @@ Plugin 'chrisbra/vim-diff-enhanced'
 " Autocompletion 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'beloglazov/vim-online-thesaurus'
+Plugin 'marijnh/tern_for_vim'
 "Plugin 'marijnh/tern_for_vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -401,6 +402,16 @@ let g:ycm_server_log_level = 'debug'
 " disable option to disable ycm if file is too big
 let g:ycm_disable_for_files_larger_than_kb = 0
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               tern settings                                "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" set tern leader or else default '\'
+let g:tern_map_prefix = '<leader>'
+" enable keyboard shortcuts
+let g:tern_map_keys=1
+" hold automatic hints after delay
+let g:tern_show_arguments_hints='on_hold'
 
 " enable/disable csv integration for displaying the current column. >
  let g:airline#extensions#csv#enabled = 1
