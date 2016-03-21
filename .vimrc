@@ -105,7 +105,8 @@ let opt = ""
    \ v:fname_in . " " . v:fname_new .  " > " . v:fname_out
 endfunction
 set diffexpr=DiffW()
-
+" vimdiff wrap text
+autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
 " file and path name copies custom commands
 command! ChangeDirHere cd %:p:h
