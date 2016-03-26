@@ -13,7 +13,7 @@ Plugin 'gmarik/Vundle.vim'
 " navigation
 Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'd11wtq/ctrlp_bdelete.vim'
 Plugin 'dhruvasagar/vim-vinegar'
 " styling
