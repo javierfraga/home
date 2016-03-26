@@ -14,6 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'kien/ctrlp.vim'
+Plugin 'd11wtq/ctrlp_bdelete.vim'
 Plugin 'dhruvasagar/vim-vinegar'
 " styling
 Plugin 'scrooloose/nerdcommenter'
@@ -251,14 +252,19 @@ let g:UltiSnipsAddFiletypes='html.xml'
 "delimitMate setting
 let delimitMate_expand_cr = 1
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              Ctrl-P mappings                               "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 "CtrlP default mapping and the default command to invoke CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-"
 " Easy bindings for its various modes
 nmap <leader>f :CtrlPBuffer<cr>
 nmap <leader>fa :CtrlPMixed<cr>
 nmap <leader>fm :CtrlPMRU<cr>
+" buffer delete in Ctrl-P
+call ctrlp_bdelete#init()
 
 " " Window remap to something more comfortable
 nmap <SPACE>w <C-w>
