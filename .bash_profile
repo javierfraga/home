@@ -27,4 +27,3 @@ if [[ $(cat /etc/*-release) =~ Centos ]]; then
 	export HTTP_PROXY='135.28.13.11:8080'
 	export HTTPS_PROXY='135.28.13.11:8080'
 fi
-
