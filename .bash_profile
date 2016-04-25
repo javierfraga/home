@@ -8,7 +8,6 @@ fi
 # User specific environment and startup programs
 shopt -s nocasematch
 if [[ $(cat /etc/*-release) =~ Centos ]]; then
-	echo "you are in in Centos"
 	PATH=$PATH:$HOME/bin
 	PATH=$PATH:/usr/java/jdk1.6.0_29/bin:/usr/java/jdk1.6.0_29/jre/bin
 
