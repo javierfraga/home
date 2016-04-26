@@ -6,15 +6,13 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # User specific environment and startup programs
-shopt -s nocasematch
+shopt -s nocasematch # ignorecase below (i.e. centos)
 if [[ $(cat /etc/*-release) =~ Centos ]]; then
 	PATH=$PATH:$HOME/bin
 	PATH=$PATH:/usr/java/jdk1.6.0_29/bin:/usr/java/jdk1.6.0_29/jre/bin
-
 	export PATH
 
 	JAVA_HOME=/usr/java/jdk1.6.0_29
-
 	export JAVA_HOME
 
 	export M2_HOME=/usr/local/apache-maven
@@ -25,4 +23,7 @@ if [[ $(cat /etc/*-release) =~ Centos ]]; then
 	export MAVEN_OPTS='-Xms512m -XX:MaxPermSize=2048m -Xmx2048m'
 	export HTTP_PROXY='135.28.13.11:8080'
 	export HTTPS_PROXY='135.28.13.11:8080'
+else
+	PATH=$PATH:$HOME/bin
+	export PATH
 fi
