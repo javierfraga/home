@@ -21,8 +21,8 @@ if [[ $(cat /etc/*-release) =~ Centos ]]; then
 	export ATG_HOME=/common/ATG10.2
 	export DYNAMO_HOME=/common/ATG10.2/home
 	export MAVEN_OPTS='-Xms512m -XX:MaxPermSize=2048m -Xmx2048m'
-	export HTTP_PROXY='135.28.13.11:8080'
-	export HTTPS_PROXY='135.28.13.11:8080'
+	#export HTTP_PROXY='135.28.13.11:8080'
+	#export HTTPS_PROXY='135.28.13.11:8080'
 else
 	PATH=$PATH:$HOME/bin
 	export PATH
