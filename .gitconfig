@@ -2,6 +2,7 @@
 	ui = auto
 [core]
 	pager = less -FXRS -r
+	editor = nvim
 [user]
 	name = Javier Fraga
 	email = javier.s.fraga@gmail.com
