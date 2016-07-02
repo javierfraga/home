@@ -5,4 +5,5 @@
 [user]
 	name = Javier Fraga
 	email = javier.s.fraga@gmail.com
-
+[diff]
+	tool = vimdiff
