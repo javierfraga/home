@@ -6,5 +6,9 @@
 [user]
 	name = Javier Fraga
 	email = javier.s.fraga@gmail.com
+[difftool]
+    prompt = true
 [diff]
-	tool = vimdiff
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\""
