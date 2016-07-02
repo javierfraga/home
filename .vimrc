@@ -38,7 +38,7 @@ Plugin 'chrisbra/vim-diff-enhanced'
 " Autocompletion 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'beloglazov/vim-online-thesaurus'
-Plugin 'marijnh/tern_for_vim'
+Plugin 'ternjs/tern_for_vim'
 "Plugin 'marijnh/tern_for_vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -135,7 +135,7 @@ set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set iskeyword+=-	"adds '-' to whole word for spinal case edits"
 set background=dark	" set color good for dark background, execute before :syntax on
-colorscheme delek
+colorscheme industry
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -338,7 +338,7 @@ nmap <C-j> <Plug>bufferLeft
 set hidden
 
 ""CtrlP will set its local working directory according to this variable
-let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_working_path_mode = 'raw'
 ""  c - the directory of the current file.
 ""  a - like 'c', but only applies when the current working directory outside of
 ""      CtrlP isn't a direct ancestor of the directory of the current file.
