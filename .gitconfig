@@ -1,7 +1,7 @@
 [color]
 	ui = auto
 [core]
-	pager = less -FXRS
+	pager = less -FXRS -r
 [user]
 	name = Javier Fraga
 	email = javier.s.fraga@gmail.com
