@@ -12,3 +12,5 @@
     tool = nvimdiff
 [difftool "nvimdiff"]
     cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\""
+[credential]
+	helper = cache
