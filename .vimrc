@@ -111,9 +111,9 @@ autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
 " file and path name copies custom commands
 command! ChangeDirHere cd %:p:h
-command! GetDirName redir @+ | echo expand('%:p:h') | redir END | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:p:h') | redir END | let @* = substitute(@*,'\n','','g')
-command! GetFileName redir @+ | echo expand('%:t') | redir END | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:t') | redir END | let @* = substitute(@*,'\n','','g')
-command! GetFullPath redir @+ | echo expand('%:p') | redir END | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:p') | redir END | let @* = substitute(@*,'\n','','g')
+command! GetDirName redir @+ | echo expand('%:p:h') | redir END | sleep 50ms | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:p:h') | redir END | sleep 50ms | let @* = substitute(@*,'\n','','g')
+command! GetFileName redir @+ | echo expand('%:t') | redir END | sleep 50ms | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:t') | redir END | sleep 50ms | let @* = substitute(@*,'\n','','g')
+command! GetFullPath redir @+ | echo expand('%:p') | sleep 50ms | redir END | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:p') | redir END | sleep 50ms | let @* = substitute(@*,'\n','','g')
 
 
 " check file change every 4 seconds ('CursorHold') and reload the buffer upon
