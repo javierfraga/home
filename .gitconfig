@@ -13,4 +13,4 @@
 [difftool "nvimdiff"]
     cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\""
 [credential]
-	helper = cache
+	helper = cache --timeout 1800
