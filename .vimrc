@@ -233,7 +233,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+ let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
 
 "Defines the directory private snippet definition
 "files are stored in. For example, if the variable
