@@ -126,3 +126,14 @@ fi
 if [ "$(uname -s)" == "Linux" ]; then
 	export EDITOR=nvim
 fi
+
+command_exists () {
+    command -v "$1" > /dev/null 2>&1;
+}
+vimSwitch () {
+	if command_exists nvim ; then
+		nvim $@
+	else
+		vim $@
+	fi
+}

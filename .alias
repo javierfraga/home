@@ -75,3 +75,4 @@ alias weblogic='/common/Oracle/Middleware/user_projects/domains/base_domain/bin/
 alias wl='nvim /common/Oracle/Middleware/user_projects/domains/base_domain/bin/startEbizWeblogic.sh'
 alias cd='pushd'
 alias po='popd'
+alias vim=vimSwitch
