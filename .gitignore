@@ -35,6 +35,9 @@
 !.config/*
 !.config/nvim/*
 .config/Trolltech.conf
+.config/monitors.xml
+.config/user-dirs.dirs
+.config/user-dirs.locale
 
 # this will add any files in test-dir/, if they exist
 !test-dir
