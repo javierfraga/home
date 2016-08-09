@@ -127,13 +127,19 @@ if [ "$(uname -s)" == "Linux" ]; then
 	export EDITOR=nvim
 fi
 
+# check if program is installed
 command_exists () {
     command -v "$1" > /dev/null 2>&1;
 }
+
+# so I can use only one 'vim' command
 vimSwitch () {
 	if command_exists nvim ; then
 		nvim $@
+	elif command_exists gvim ; then
+
+		gvim -v $@
 	else
-		vim $@
+		\vim $@
 	fi
 }
