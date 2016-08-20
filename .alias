@@ -77,3 +77,4 @@ alias wl='vim /common/Oracle/Middleware/user_projects/domains/base_domain/bin/st
 alias cd='pushd'
 alias po='popd'
 alias vim=vimSwitch
+alias chrome='/opt/google/chrome/google-chrome'
