@@ -83,7 +83,7 @@ fi
 
 # some more ls aliases
 source ~/.alias
-source ~/mvn-color.sh
+source ~/.mvn-color.sh
 source ~/.gitrc
 export TERM=xterm-256color
 # Add an "alert" alias for long running commands.  Use like so:
