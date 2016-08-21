@@ -26,6 +26,7 @@
 !.git-completion.bash
 !.git-prompt.sh
 !.xcape
+!.Xdefaults
 !.npm-packages/
 !.npm-packages/*
 !.npm-packages/*/*
