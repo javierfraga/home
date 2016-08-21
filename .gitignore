@@ -23,8 +23,8 @@
 !.inputrc
 !battery
 !mvn-color.sh
-!git-completion.bash
-!git-prompt.sh
+!.git-completion.bash
+!.git-prompt.sh
 !xcape
 !.npm-packages/
 !.npm-packages/*

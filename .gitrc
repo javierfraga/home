@@ -7,10 +7,10 @@ reset="\[\e[0m\]"
 
 
 # Enable tab completion
-source ~/git-completion.bash
+source ~/.git-completion.bash
 
 # Change command prompt
-source ~/git-prompt.sh
+source ~/.git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 
 # '\u' adds the name of the current user to the prompt
