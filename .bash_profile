@@ -23,6 +23,25 @@ if [[ $(cat /etc/*-release) =~ Centos ]]; then
 	export MAVEN_OPTS='-Xms512m -XX:MaxPermSize=2048m -Xmx2048m'
 #	export HTTP_PROXY='135.28.13.11:8080'
 #	export HTTPS_PROXY='135.28.13.11:8080'
+	moveEbizDir (){
+		echo "moving /common/EBizCare.ear"
+		mv /ebiz/*/*/EBizCare/EBizCareEAR/target/EBizCare.ear/ /common/
+	}
+	mvEbizEar () {
+		#read -p "required to enter a release (e.g 1702): " release
+		if ls /ebiz/*/*/EBizCare/EBizCareEAR/target/EBizCare.ear/ > /dev/null 2>&1; then
+			# Control will enter here if $DIRECTORY exists.
+			if [ -d "/common/EBizCare.ear" ]; then
+				read -p "EBizCare.ear exist in /common please add extention to it now (e.g -1702): " extention
+				mv /common/EBizCare.ear /common/EBizCare.ear$extention
+				moveEbizDir
+			else
+				moveEbizDir
+			fi
+		else
+			echo "EBizCare.ear does not exist in build!!!"
+		fi
+	}
 else
 	PATH=$PATH:$HOME/bin
 	export PATH
