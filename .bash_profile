@@ -31,7 +31,7 @@ if [[ $(cat /etc/*-release) =~ Centos ]]; then
 		read -p "required to enter a release (e.g 1702): " release
 		shopt -s nullglob
 		branches=(/ebiz/$release/*)
-		echo "Which release?"
+		echo "Which branch?"
 		select branch in "${branches[@]##*/}"; do # very cool trick to strip off abs path '##*/'
 			if ls /ebiz/$release/$branch/EBizCare/EBizCareEAR/target/EBizCare.ear/ > /dev/null 2>&1; then
 				# Control will enter here if $DIRECTORY exists.
