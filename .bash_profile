@@ -25,22 +25,30 @@ if [[ $(cat /etc/*-release) =~ Centos ]]; then
 #	export HTTPS_PROXY='135.28.13.11:8080'
 	moveEbizDir (){
 		echo "moving /common/EBizCare.ear"
-		mv /ebiz/*/*/EBizCare/EBizCareEAR/target/EBizCare.ear/ /common/
+		mv /ebiz/$1/$2/EBizCare/EBizCareEAR/target/EBizCare.ear/ /common/
 	}
 	mvEbizEar () {
-		#read -p "required to enter a release (e.g 1702): " release
-		if ls /ebiz/*/*/EBizCare/EBizCareEAR/target/EBizCare.ear/ > /dev/null 2>&1; then
-			# Control will enter here if $DIRECTORY exists.
-			if [ -d "/common/EBizCare.ear" ]; then
-				read -p "EBizCare.ear exist in /common please add extention to it now (e.g -1702): " extention
-				mv /common/EBizCare.ear /common/EBizCare.ear$extention
-				moveEbizDir
+		read -p "required to enter a release (e.g 1702): " release
+		shopt -s nullglob
+		branches=(/ebiz/$release/*)
+		echo "Which release?"
+		select branch in "${branches[@]##*/}"; do # very cool trick to strip off abs path '##*/'
+			if ls /ebiz/$release/$branch/EBizCare/EBizCareEAR/target/EBizCare.ear/ > /dev/null 2>&1; then
+				# Control will enter here if $DIRECTORY exists.
+				if [ -d "/common/EBizCare.ear" ]; then
+					read -p "EBizCare.ear exist in /common please add extention to it now (e.g -1702): " extention
+					mv /common/EBizCare.ear /common/EBizCare.ear$extention
+					moveEbizDir $release $branch
+				else
+					moveEbizDir $release $branch
+				fi
 			else
-				moveEbizDir
+				echo "EBizCare.ear does not exist in $release/$branch!!!"
+				echo "release: $release"
+				echo "branch: $branch"
 			fi
-		else
-			echo "EBizCare.ear does not exist in build!!!"
-		fi
+			break
+		done
 	}
 else
 	PATH=$PATH:$HOME/bin
