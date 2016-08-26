@@ -111,9 +111,9 @@ autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
 " file and path name copies custom commands
 command! ChangeDirHere cd %:p:h
-command! GetDirName redir @+ | echo expand('%:p:h') | redir END | sleep 50ms | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:p:h') | redir END | sleep 50ms | let @* = substitute(@*,'\n','','g')
-command! GetFileName redir @+ | echo expand('%:t') | redir END | sleep 50ms | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:t') | redir END | sleep 50ms | let @* = substitute(@*,'\n','','g')
-command! GetFullPath redir @+ | echo expand('%:p') | redir END | sleep 50ms | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:p') | redir END | sleep 50ms | let @* = substitute(@*,'\n','','g')
+command! GetDirName redir @+ | echo expand('%:p:h') | redir END | sleep 100ms | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:p:h') | redir END | sleep 100ms | let @* = substitute(@*,'\n','','g')
+command! GetFileName redir @+ | echo expand('%:t') | redir END | sleep 100ms | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:t') | redir END | sleep 100ms | let @* = substitute(@*,'\n','','g')
+command! GetFullPath redir @+ | echo expand('%:p') | redir END | sleep 100ms | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:p') | redir END | sleep 100ms | let @* = substitute(@*,'\n','','g')
 
 
 " check file change every 4 seconds ('CursorHold') and reload the buffer upon
@@ -273,7 +273,7 @@ nmap <SPACE>w <C-w>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set clipboard=unnamedplus
 " copy and replace in visual mode only
-vnoremap <C-r> "hy:s/<C-r>h//<left> 
+"vnoremap <C-r> "hy:s/<C-r>h//<left> 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                vim-repeats                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
