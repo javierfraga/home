@@ -113,6 +113,9 @@ NPM_PACKAGES="${HOME}/.npm-packages"
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 PATH="$NPM_PACKAGES/bin:$PATH"
 
+# adds sbin/, has ifcofig
+[[ ":$PATH:" != *":/sbin:"* ]] && PATH=$PATH:/sbin
+
 # karma chrome path for webdriver
 export CHROME_BIN=/usr/bin/google-chrome-stable
 
