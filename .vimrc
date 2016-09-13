@@ -108,6 +108,7 @@ endfunction
 set diffexpr=DiffW()
 " vimdiff wrap text
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
+set diffopt+=vertical
 
 " file and path name copies custom commands
 command! ChangeDirHere cd %:p:h
