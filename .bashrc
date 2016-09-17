@@ -127,7 +127,7 @@ fi
 
 # set default editor, neovim only for linux
 if [ "$(uname -s)" == "Linux" ]; then
-	export EDITOR=nvim
+	export EDITOR=vim
 fi
 
 # check if program is installed
