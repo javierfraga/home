@@ -20,6 +20,7 @@
 !.vim/UltiSnips/*
 #!.vim/*/* #note this is needed to add the .vim directory itself and top level inside
 !.vimrc
+!.root-softlink-creation.sh
 !.nvim-softlink-creation.sh
 !.inputrc
 !.battery
