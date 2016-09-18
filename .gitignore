@@ -18,6 +18,7 @@
 !.vim/
 !.vim/*
 !.vim/UltiSnips/*
+!.vim/plugin/**
 #!.vim/*/* #note this is needed to add the .vim directory itself and top level inside
 !.vimrc
 !.root-softlink-creation.sh
