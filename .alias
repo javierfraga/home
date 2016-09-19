@@ -81,4 +81,4 @@ alias vim=vimSwitch
 alias ebiz-move=mvEbizEar
 alias chrome='/opt/google/chrome/google-chrome'
 alias lock='xscreensaver-command -lock'
-alias pcsleep="sudo /usr/sbin/pm-suspend"
+alias pcsleep="sudo lock;sudo /usr/sbin/pm-suspend"
