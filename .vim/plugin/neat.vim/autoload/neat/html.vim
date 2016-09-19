@@ -1,4 +1,4 @@
-function neat#html#neat()
+function! neat#html#neat()
     if executable('tidy')
         execute '%!tidy --tidy-mark false '
                     \ . '--doctype omit '
