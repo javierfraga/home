@@ -1,4 +1,4 @@
-function neat#xml#neat()
+function! neat#xml#neat()
     if executable('xmllint')
         execute '%!xmllint --format -'
         execute '%normal =='
