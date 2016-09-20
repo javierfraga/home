@@ -148,3 +148,6 @@ vimSwitch () {
 		\vim $@
 	fi
 }
+runOnce (){
+	pgrep $@ > /dev/null || ($@ &)
+}
