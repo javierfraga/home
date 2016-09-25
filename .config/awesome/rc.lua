@@ -84,7 +84,7 @@ end
 -- Define a tag table which hold all screen tags.
 --tags = {}
 tags = {
-	names  = { "aws.1", "ocr.2", "tldp.3", "tcp/ip.4", "5", "slack.6", "c.7", "torr.8", "msg.9" },
+	names  = { "aws.1", "ocr.2", "tldp.3", "tcp/ip.4", "js.5", "slack.6", "c.7", "torr.8", "msg.9" },
 	layout = { 
 		layouts[1], layouts[2], layouts[1], layouts[5], layouts[6],
 		layouts[12], layouts[9], layouts[3], layouts[7]
