@@ -14,6 +14,7 @@
 !.conkyrc
 # these two below do not work need to move to new nvim structure
 !.config/nvim/init.vim
+!.config/awesome/rc.lua
 !.local/share/nvim/site/plugin
 !.vim/
 !.vim/*
