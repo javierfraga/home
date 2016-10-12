@@ -1,0 +1,9 @@
+data/autoload/neat/xml.vim.i
+data/.hgignore.i
+data/autoload/neat/json.vim.i
+data/.hgtags.i
+data/README.mkd.i
+data/COPYING.i
+data/doc/neat.txt.i
+data/plugin/neat.vim.i
+data/autoload/neat/html.vim.i

@@ -14,12 +14,15 @@
 !.conkyrc
 # these two below do not work need to move to new nvim structure
 !.config/nvim/init.vim
+!.config/awesome/rc.lua
 !.local/share/nvim/site/plugin
 !.vim/
 !.vim/*
 !.vim/UltiSnips/*
+!.vim/plugin/**
 #!.vim/*/* #note this is needed to add the .vim directory itself and top level inside
 !.vimrc
+!.root-softlink-creation.sh
 !.inputrc
 !.battery
 !.mvn-color.sh

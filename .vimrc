@@ -23,6 +23,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'burnettk/vim-angular'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'elzr/vim-json'
+Plugin 'tpope/vim-jdaddy'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-scripts/VisIncr'
 Plugin 'godlygeek/tabular'
@@ -62,6 +63,7 @@ Plugin 'matthewsimo/angular-vim-snippets'
  " see :h vundle for more details or wiki for FAQ
  " Put your non-Plugin stuff after this line
 " An example for a vimrc file.
+set runtimepath^=/home/javier/.vim/plugin/neat.vim
 "
 let g:NERDTreeDirArrows=0
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
