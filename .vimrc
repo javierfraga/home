@@ -117,6 +117,115 @@ command! GetFileName redir @+ | echo expand('%:t') | redir END | sleep 100ms | l
 command! GetFullPath redir @+ | echo expand('%:p') | redir END | sleep 100ms | let @+ = substitute(@+,'\n','','g') | redir @* | echo expand('%:p') | redir END | sleep 100ms | let @* = substitute(@*,'\n','','g')
 
 
+function! TestMe(...)
+	"echo a:1
+	if join(a:000, ' ') =~ "\a" 
+		echo "true"
+	else
+		echo "false"
+	endif
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                             ebiz svn functions                             "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command! EbizDiff call DiffFile()
+command! EbizAdd call AddSvnFile()
+command! EbizCloseDiff call CloseDiff()
+command! -nargs=* EbizCommit :call CommitSvnFiles(<f-args>)
+command! GetSvnFiles redir @+ | echo g:svnFiles | redir END | sleep 100ms | let @+ = substitute(@+,'\n','','g') | redir @* | echo  g:svnFiles | redir END | sleep 100ms | let @* = substitute(@*,'\n','','g')
+
+function! ListOptions(directories)
+	let c = 0
+	for i in a:directories
+		echo c . ': ' . i
+		let c += 1
+	endfor
+endfunction
+
+function! GetChoice()
+	call inputsave()
+	let choice = input("Enter choice (#) and add done when done:")
+	redraw	" this is only way input is not received twice
+	call inputrestore()
+	echo choice . " was selected"
+	return choice 
+endfunction
+
+function! GetFindLocation(lists)
+	if len(a:lists) == 1
+		let choice=0
+		return choice
+	else
+		call ListOptions(a:lists)
+		let choice = GetChoice()
+		return choice
+	endif
+endfunction
+
+let g:svnFiles = []
+function! DiffFile()
+	"gets file name
+	let currentFile = expand('%:t')
+	echom currentFile
+
+	"transverses ebiz branch directory for 'find' location
+	echom "working on traversing branch ....."
+	let path = "/ebiz/"
+	let choice = ""
+	while choice !~ "done"
+		let dirs = split(system("ls " . path), "\n")
+		let choice = GetFindLocation(dirs)
+		if choice !~ "done"
+			let path =  path . dirs[choice] . "/"
+			echom "current location:  " . path
+		endif
+	endwhile
+
+	"find command for files
+	echom "working on find ....."
+	let path = system("find " . path . " -name " . currentFile)[:-2]
+	let pathList=split(path,'[\]\|[[:cntrl:]]')
+	let choice = GetFindLocation(pathList)
+
+	"svn and vimdiff commands
+	echom "working on svn update ....."
+	execute("!svn update " . pathList[choice])
+	execute("diffsplit" . pathList[choice])
+endfunction
+
+function! CloseDiff()
+	execute("bd")
+	execute("diffoff!")
+endfunction
+
+function! AddSvnFile()
+	let currentFile = expand('%:p')
+	let g:svnFiles = add(g:svnFiles,currentFile)
+	call CloseDiff()
+	echo g:svnFiles
+endfunction
+
+function! CommitSvnFiles(...)
+	if len(g:svnFiles) > 0
+		execute("!svn ci -m " . join(a:000, ' ') . " " . join(g:svnFiles,' '))
+		let g:svnFiles=[]	
+		"try
+			"execute("!svn ci -m " . join(a:000, ' ') . " " . join(g:svnFiles,' '))
+			"let success=1
+		"catch
+			"echo "there was error with svn commit, this msg is from your .vimrc"
+			"let success=0
+		"endtry
+		"if success == 1
+			"let g:svnFiles=[]	
+			"echo "g:svnFiles has not been emptied"
+		"endif
+	else
+		echo "g:svnFiles was empty" g:svnFiles	
+	endif
+endfunction
+
 " check file change every 4 seconds ('CursorHold') and reload the buffer upon
 " detecting change
 set autoread
