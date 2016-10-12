@@ -149,6 +149,19 @@ vimSwitch () {
 		\vim $@
 	fi
 }
+
+for_each_do (){
+	for i in `$1`; do
+		$2 $i	
+	done
+	#TODO: solve way to pass unique id for 'file' and 'result'
+	#for file in `ls /media/sf_javier/dda+b2b-release-10.16/`; do
+		#for result in `find . -name $file`; do
+			#cp -i /media/sf_javier/dda+b2b-release-10.16/$file $result
+		#done
+		#echo "---------------"
+	#done
+}
 runOnce (){
 	pgrep $@ > /dev/null || ($@ &)
 }
