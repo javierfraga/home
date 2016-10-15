@@ -51,6 +51,7 @@ alias mongo-me='mongod --storageEngine=mmapv1 --dbpath /data/db'
 alias apache-me="sudo ln -s $PWD /var/www/htdocs/"
 alias npm-me="git clone https://gist.github.com/17e5277931727ccc8c84a311537479cd.git; cat 17e5277931727ccc8c84a311537479cd/package.json >> package.json ; rm -rf 17e5277931727ccc8c84a311537479cd/;vim package.json"
 alias tern-me="git clone https://gist.github.com/987ac21954dda865e29d.git; cat 987ac21954dda865e29d/.tern-project >> .tern-project ; rm -rf 987ac21954dda865e29d/;vim .tern-project"
+alias mount-me='sudo tail -f /var/log/messages -n 25'
 alias xcape-me='~/.xcape'
 alias att-me='sudo service iptables save;sudo service iptables stop;'
 alias gitignore-me="git clone https://gist.github.com/46edd3183edf2cf62fd2.git; cat 46edd3183edf2cf62fd2/.gitignore >> .gitignore ; rm -rf 46edd3183edf2cf62fd2/"
