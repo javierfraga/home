@@ -117,7 +117,7 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 [[ ":$PATH:" != *":/sbin:"* ]] && PATH=$PATH:/sbin
 
 # adds mongodb standalone to PATH
-PATH=$PATH:/home/javier/updates/mongodb-linux-x86_64-3.2.10/bin/
+PATH=$PATH:/home/javier/updates/mongodb/bin/
 
 # karma chrome path for webdriver
 export CHROME_BIN=/usr/bin/google-chrome-stable
