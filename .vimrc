@@ -29,6 +29,7 @@ Plugin 'vim-scripts/VisIncr'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-scripts/indentpython.vim'
 " absolute essentials
 Plugin 'bling/vim-airline'
 Plugin 'kana/vim-arpeggio'
@@ -84,9 +85,22 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 set number
-set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
 autocmd FileType xml setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
+" add the proper PEP8 indentation for python
+au BufNewFile,BufRead *.py:
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+"define BadWhitespace before using in a match
+highlight BadWhitespace ctermbg=red guibg=darkred
+" trys to match bad whitespace in python
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 " Saving marks and jumps
@@ -334,9 +348,12 @@ endfun
 autocmd BufRead,BufNewFile * :call IgnoreCamelCaseSpell()
 
 " vertical line indentation
+set list lcs=tab:\|\ 
 let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#09AA08'
 let g:indentLine_char = '|'
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '.'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
