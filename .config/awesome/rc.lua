@@ -11,7 +11,7 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 -- widget module
-local vicious = require("vicious")
+--local vicious = require("vicious")
  awful.util.spawn_with_shell("xcompmgr -cF &")
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -121,9 +121,9 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- {{{ Wibox
 --  Network usage widget
 -- Initialize widget, use widget({ type = "textbox" }) for awesome < 3.5
-netwidget = wibox.widget.textbox()
+--netwidget = wibox.widget.textbox()
 -- Register widget
-vicious.register(netwidget, vicious.widgets.net, '<span color="#CC9393">${eth0 down_kb}</span> <span color="#7F9F7F">${eth0 up_kb}</span>', 3)
+--vicious.register(netwidget, vicious.widgets.net, '<span color="#CC9393">${eth0 down_kb}</span> <span color="#7F9F7F">${eth0 up_kb}</span>', 3)
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
 
@@ -206,7 +206,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-	right_layout:add(netwidget) 
+    --right_layout:add(netwidget) 
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
