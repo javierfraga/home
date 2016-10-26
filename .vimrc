@@ -538,6 +538,9 @@ let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
 " disable option to disable ycm if file is too big
 let g:ycm_disable_for_files_larger_than_kb = 0
+"for no .ycm_global_ycm_extra_conf found error in C program
+"let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -588,8 +591,6 @@ let g:javascript_enable_domhtmlcss=1
 " othree/javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'jquery,angularjs,underscore,backbone,jasmine,requirejs'
 
-"for no .ycm_global_ycm_extra_conf found error in C program
-let g:ycm_global_ycm_extra_conf='./third_party/ycmd/examples/.ycm_extra_conf.py'
 
 " :bufdo vimgrepadd text % | copen, cnext and cprev 
 nmap ]q :cnext<CR>
