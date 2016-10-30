@@ -9,10 +9,10 @@ fi
 shopt -s nocasematch # ignorecase below (i.e. centos)
 if [[ $(cat /etc/*-release) =~ Centos ]]; then
 	PATH=$PATH:$HOME/bin
-	PATH=$PATH:/usr/java/jdk1.6.0_29/bin:/usr/java/jdk1.6.0_29/jre/bin
+	#PATH=$PATH:/usr/java/jdk1.6.0_29/bin:/usr/java/jdk1.6.0_29/jre/bin
 	export PATH
 
-	JAVA_HOME=/usr/java/jdk1.6.0_29
+	JAVA_HOME=/usr/java/jdk1.8.0_102
 	export JAVA_HOME
 
 	export M2_HOME=/usr/local/apache-maven
