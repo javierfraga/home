@@ -588,6 +588,9 @@ let g:javascript_enable_domhtmlcss=1
 " othree/javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'jquery,angularjs,underscore,backbone,jasmine,requirejs'
 
+"for no .ycm_global_ycm_extra_conf found error in C program
+let g:ycm_global_ycm_extra_conf='./third_party/ycmd/examples/.ycm_extra_conf.py'
+
 " :bufdo vimgrepadd text % | copen, cnext and cprev 
 nmap ]q :cnext<CR>
 map ]q :cnext<CR>
