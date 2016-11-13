@@ -113,8 +113,14 @@ NPM_PACKAGES="${HOME}/.npm-packages"
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 PATH="$NPM_PACKAGES/bin:$PATH"
 
-# adds sbin/, has ifcofig
+# add */sbin directories: 
+# http://unix.stackexchange.com/questions/232782/is-there-a-reason-i-would-not-add-usr-local-sbin-usr-sbin-sbin-to-my-path-o
+# adds /sbin, if does not already have
 [[ ":$PATH:" != *":/sbin:"* ]] && PATH=$PATH:/sbin
+# adds /usr/local/sbin, if does not already have
+[[ ":$PATH:" != *":/usr/local/sbin:"* ]] && PATH=$PATH:/usr/local/sbin
+# adds /usr/sbin, if does not already have
+[[ ":$PATH:" != *":/usr/sbin:"* ]] && PATH=$PATH:/usr/sbin
 
 # adds mongodb standalone to PATH
 PATH=$PATH:/home/javier/updates/mongodb/bin/
