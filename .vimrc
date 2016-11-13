@@ -86,8 +86,8 @@ endif
 set nocompatible
 set number
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
-autocmd FileType xml setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
+autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd FileType xml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " add the proper PEP8 indentation for python
 au BufNewFile,BufRead *.py:
     \ set tabstop=4
