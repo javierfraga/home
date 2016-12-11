@@ -119,8 +119,13 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 [[ ":$PATH:" != *":/sbin:"* ]] && PATH=$PATH:/sbin
 # adds /usr/local/sbin, if does not already have
 [[ ":$PATH:" != *":/usr/local/sbin:"* ]] && PATH=$PATH:/usr/local/sbin
-# adds /usr/sbin, if does not already have
-[[ ":$PATH:" != *":/usr/sbin:"* ]] && PATH=$PATH:/usr/sbin
+# outproc is for color console output with bash commande, be sure to install
+# http://zaufi.github.io/pluggable-output-processor.html
+# there are some typos in code, see bash/outproc bookmarks saved soln.
+# adds /usr/bin/outproc, if does not already have
+[[ ":$PATH:" != *":/usr/bin/outproc:"* ]] && PATH=/usr/bin/outproc:$PATH
+# adds /usr/lib/outproc/bin, if does not already have
+[[ ":$PATH:" != *":/usr/lib/outproc/bin:"* ]] && PATH=/usr/lib/outproc/bin:$PATH
 
 # adds mongodb standalone to PATH
 PATH=$PATH:/home/javier/updates/mongodb/bin/

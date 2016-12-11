@@ -88,3 +88,4 @@ alias chrome='/opt/google/chrome/google-chrome'
 alias lock='xscreensaver-command -lock'
 alias pcsleep="sudo /usr/sbin/pm-suspend"
 alias fixclock='sudo ntpdate pool.ntp.org'
+alias awesome-lua='vim ~/.config/awesome/rc.lua'
