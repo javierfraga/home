@@ -36,6 +36,7 @@
 !.gdbinit
 !.gdbinit.d/
 !.gdbinit.d/*
+!.ycm_extra_conf.py
 # this is only way I could add
 # add all files up to folder I want
 # then remove any other I don't want
