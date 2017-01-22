@@ -1,7 +1,7 @@
 alias ll='ls -alF'
 alias la='ls -AF'
 #alias l='ls -CF'
-alias grep='grep --color=auto -n'
+alias grep='grep --color=auto -n -E'
 alias fgrep='fgrep --color=auto -n'
 alias egrep='egrep --color=auto -n'
 alias less='less -FXRS'
