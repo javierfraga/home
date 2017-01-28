@@ -56,6 +56,7 @@ alias mount-me='sudo tail -f /var/log/messages -n 25'
 alias xcape-me='~/.xcape'
 alias att-me='sudo service iptables save;sudo service iptables stop;'
 alias gitignore-me="git clone https://gist.github.com/46edd3183edf2cf62fd2.git; cat 46edd3183edf2cf62fd2/.gitignore >> .gitignore ; rm -rf 46edd3183edf2cf62fd2/;vim .gitignore"
+alias docs-me="git clone https://gist.github.com/javalanche/e93e0fd495d552cf477bee09bc830f93; mv e93e0fd495d552cf477bee09bc830f93/gnu-license .; mv e93e0fd495d552cf477bee09bc830f93/us-constitution .; rm -rf e93e0fd495d552cf477bee09bc830f93/;"
 alias gits='git status'
 alias gita='git add'
 alias gitc='git checkout'
