@@ -54,7 +54,7 @@ alias npm-me="git clone https://gist.github.com/17e5277931727ccc8c84a311537479cd
 alias tern-me="git clone https://gist.github.com/987ac21954dda865e29d.git; cat 987ac21954dda865e29d/.tern-project >> .tern-project ; rm -rf 987ac21954dda865e29d/;vim .tern-project"
 alias mount-me='sudo tail -f /var/log/messages -n 25'
 alias xcape-me='~/.xcape'
-alias att-me='sudo service iptables save;sudo service iptables stop;'
+alias att-me='sudo service iptables save;sudo service iptables stop;export http=135.28.13.11:8080;export https=135.28.13.11:8080;export HTTP=135.28.13.11:8080;export HTTPS=135.28.13.11:8080;git config --global http.proxy http://one.proxy.att.com:8080;git config --global https.proxy http://one.proxy.att.com:8080;git config --global url."https://".insteadOf git://;npm config set proxy http://one.proxy.att.com:8080;npm config set https-proxy http://one.proxy.att.com:8080;'
 alias gitignore-me="git clone https://gist.github.com/46edd3183edf2cf62fd2.git; cat 46edd3183edf2cf62fd2/.gitignore >> .gitignore ; rm -rf 46edd3183edf2cf62fd2/;vim .gitignore"
 alias docs-me="git clone https://gist.github.com/javalanche/e93e0fd495d552cf477bee09bc830f93; mv e93e0fd495d552cf477bee09bc830f93/gnu-license .; mv e93e0fd495d552cf477bee09bc830f93/us-constitution .; rm -rf e93e0fd495d552cf477bee09bc830f93/;"
 alias gits='git status'
