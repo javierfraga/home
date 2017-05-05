@@ -458,7 +458,7 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-theme.wallpaper = "/home/javier/pictures/Slackware-channel-1280x1024.png"
+--theme.wallpaper = "/home/javier/pictures/Slackware-channel-1280x1024.png"
 --awful.util.spawn_with_shell("/usr/bin/konsole")
 function run_once(prg,arg_string,pname,screen)
     if not prg then

@@ -57,13 +57,13 @@ alias xcape-me='~/.xcape'
 alias att-me='sudo service iptables save;sudo service iptables stop;export http_proxy=135.28.13.11:8080;export https_proxy=135.28.13.11:8080;export HTTP_PROXY=135.28.13.11:8080;export HTTPS_PROXY=135.28.13.11:8080;git config --global http.proxy http://one.proxy.att.com:8080;git config --global https.proxy http://one.proxy.att.com:8080;git config --global url."https://".insteadOf git://;npm config set proxy http://one.proxy.att.com:8080;npm config set https-proxy http://one.proxy.att.com:8080;'
 alias gitignore-me="git clone https://gist.github.com/46edd3183edf2cf62fd2.git; cat 46edd3183edf2cf62fd2/.gitignore >> .gitignore ; rm -rf 46edd3183edf2cf62fd2/;vim .gitignore"
 alias docs-me="git clone https://gist.github.com/javalanche/e93e0fd495d552cf477bee09bc830f93; mv e93e0fd495d552cf477bee09bc830f93/gnu-license .; mv e93e0fd495d552cf477bee09bc830f93/us-constitution .; rm -rf e93e0fd495d552cf477bee09bc830f93/;"
-alias udacity-me=" sed -i '/^[0-9].*$/d' *.srt;sed -i '/^\s*$/d' *.srt;perl -p -i -e 's/\n/ /' *.srt;for i in *; do printf '\n$i'>> onenote; echo >> onenote; cat '$i'>> onenote; echo >> onenote; done ;"
+alias udacity-me=" sed -i '/^[0-9].*$/d' *.srt;sed -i '/^\s*$/d' *.srt;perl -p -i -e 's/\n/ /' *.srt;"
 alias onenote-me='for i in *; do printf "\n$i">> onenote; echo >> onenote; cat "$i">> onenote; echo >> onenote; done ;'
 alias gits='git status'
 alias gita='git add'
 alias gitc='git checkout'
 alias gitd='git diff'
-alias gitb='git branch -vv'
+alias gitb='git branch -vva'
 alias gitf='git fetch origin'
 alias gitr='git remote -v'
 alias gitdf='git diff origin/master'
