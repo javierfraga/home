@@ -254,7 +254,7 @@ else
   set backupdir=/tmp " keep backup file in /tmp
 endif
 set directory=/tmp "keeps swaps in /tmp"
-set patchmode=.original "keeps a copy of original file"
+"set patchmode=.original "keeps a copy of original file"
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -573,6 +573,8 @@ nmap <leader>= :Tabularize /=<CR>
 vmap <leader>= :Tabularize /=<CR>
 nmap <leader>: :Tabularize /:<CR>
 vmap <leader>: :Tabularize /:<CR>
+nmap <leader>// :Tabularize /\/\/<CR>
+vmap <leader>// :Tabularize /\/\/<CR>
 
 " this is for html indentation i found this here:
 " http://www.vim.org/scripts/script.php?script_id=2075
