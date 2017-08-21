@@ -15,7 +15,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'd11wtq/ctrlp_bdelete.vim'
-Plugin 'dhruvasagar/vim-vinegar'
 Plugin 'majutsushi/tagbar'
 Plugin 'ludovicchabant/vim-gutentags'
 " styling
@@ -33,6 +32,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'csexton/trailertrash.vim'
+Plugin 'sheerun/vim-polyglot'
 " absolute essentials
 Plugin 'bling/vim-airline'
 Plugin 'kana/vim-arpeggio'
@@ -43,6 +43,9 @@ Plugin 'chrisbra/vim-diff-enhanced'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 Plugin 'sjl/gundo.vim'
+Plugin 'terryma/vim-expand-region'
+Plugin 'maxbrunsfeld/vim-yankstack'
+Plugin 't9md/vim-choosewin'
 " Autocompletion
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'beloglazov/vim-online-thesaurus'
@@ -52,6 +55,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'matthewsimo/angular-vim-snippets'
 " not using but would like to improve or use in future or just try later
 "Plugin 'chrisbra/csv.vim'
+"Plugin 'kana/vim-textobj-user'
+"Plugin 'kana/vim-textobj-line'
 
 
  " All of your Plugins must be added before the following line
@@ -644,6 +649,20 @@ nnoremap <leader>ss :SessionSave
 nnoremap <leader>sd :SessionDelete<CR>
 nnoremap <leader>sc :SessionClose<CR>
 
+"c++11 syntax highlighting from polyglot
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+
+"vim-chosewin
+nmap  <C-w>q  <Plug>(choosewin)
+let g:choosewin_overlay_enable = 1
+
+"textobj-line
+"nmap <leader>v  <Plug>(textobj-line-i)
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   eclim                                    "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -653,9 +672,9 @@ let g:EclimCompletionMethod = 'omnifunc'
 " Import the class under the cursor
 nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
 
-" Search for the javadocs of the element under the cursor 
+" Search for the javadocs of the element under the cursor
 nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
 
-" Perform a context sensitive search of the element under the cursor 
+" Perform a context sensitive search of the element under the cursor
 nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
