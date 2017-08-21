@@ -16,6 +16,8 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'd11wtq/ctrlp_bdelete.vim'
 Plugin 'dhruvasagar/vim-vinegar'
+Plugin 'majutsushi/tagbar'
+Plugin 'ludovicchabant/vim-gutentags'
 " styling
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Yggdroot/indentLine'
@@ -30,6 +32,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'csexton/trailertrash.vim'
 " absolute essentials
 Plugin 'bling/vim-airline'
 Plugin 'kana/vim-arpeggio'
@@ -37,11 +40,12 @@ Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/DirDiff.vim'
 Plugin 'schickling/vim-bufonly'
 Plugin 'chrisbra/vim-diff-enhanced'
-" Autocompletion 
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
+" Autocompletion
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'beloglazov/vim-online-thesaurus'
 Plugin 'ternjs/tern_for_vim'
-"Plugin 'marijnh/tern_for_vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'matthewsimo/angular-vim-snippets'
@@ -106,7 +110,20 @@ set backspace=indent,eol,start
 " Saving marks and jumps
 set viminfo='100,f1
 set dict+=/usr/share/dict/words
-
+"CursorLine highlight
+nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
+nnoremap <silent> <Leader>w :exe "let m=matchadd('WildMenu','\\<\\w*\\%" . line(".") . "l\\%" . col(".") . "c\\w*\\>')"<CR>
+noremap <silent> <Leader><CR> :call clearmatches()<CR>
+"augroup CursorLine
+  "au!
+  "au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  "au WinLeave * setlocal nocursorline
+"augroup END
+"function s:SetCursorLine()
+    "set cursorline
+    "hi cursorline cterm=bold ctermbg=darkgrey
+"endfunction
+"autocmd VimEnter * call s:SetCursorLine()
 
 " vimdiff whitespace removal
 set diffopt+=iwhite
@@ -594,7 +611,7 @@ let g:javascript_enable_domhtmlcss=1
 let g:used_javascript_libs = 'jquery,angularjs,underscore,backbone,jasmine,requirejs'
 
 
-" :bufdo vimgrepadd text % | copen, cnext and cprev 
+" :bufdo vimgrepadd text % | copen, cnext and cprev
 nmap ]q :cnext<CR>
 map ]q :cnext<CR>
 nmap [q :cprev<CR>
@@ -615,6 +632,16 @@ nmap <Up> [e
 nmap <Down> ]e
 vmap <Up> [egv
 vmap <Down> ]egv
+
+"Vim-sessions
+let g:session_directory='~/.vim/sessions'
+let g:session_autoload='no'
+let g:session_autosave='yes'
+let g:session_command_aliases = 1
+nnoremap <leader>so :SessionOpen 
+nnoremap <leader>ss :SessionSave 
+nnoremap <leader>sd :SessionDelete<CR>
+nnoremap <leader>sc :SessionClose<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   eclim                                    "
