@@ -42,6 +42,7 @@ Plugin 'schickling/vim-bufonly'
 Plugin 'chrisbra/vim-diff-enhanced'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
+Plugin 'sjl/gundo.vim'
 " Autocompletion
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'beloglazov/vim-online-thesaurus'
