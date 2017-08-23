@@ -33,6 +33,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'csexton/trailertrash.vim'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'flazz/vim-colorschemes'
 " absolute essentials
 Plugin 'bling/vim-airline'
 Plugin 'kana/vim-arpeggio'
