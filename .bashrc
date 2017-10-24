@@ -174,7 +174,7 @@ vimSwitch () {
 
 for_each_do (){
 	for i in `$1`; do
-		$2 $i	
+		$2 $i
 	done
 	#TODO: solve way to pass unique id for 'file' and 'result'
 	#for file in `ls /media/sf_javier/dda+b2b-release-10.16/`; do
@@ -186,4 +186,88 @@ for_each_do (){
 }
 runOnce (){
 	pgrep $@ > /dev/null || ($@ &)
+}
+
+get_sesc(){
+    if [[ -f /media/sf_vm-share/hpca/sesc.opt ]]; then
+        mv /media/sf_vm-share/hpca/sesc.opt ~/sesc/
+        echo "copied new sesc.opt"
+    else
+        echo "no copy file does not exist!!"
+    fi
+}
+
+#paramter $1 is the binary for simulated machine
+#paramter $2 name to append output files
+project2Old(){
+    get-sesc
+    ~/sesc/sesc.opt -f $2 -c ~/sesc/confs/cmp4-noc.conf -iInput/input.256 -otest.out -etest.err $1 -p 1 > output.$2
+    #~/sesc/sesc.opt $@
+    mv -i sesc_$1.$2 project[0-3]/
+    mv -i output.$2 project[0-3]/
+    cat test.out
+    cat test.err
+}
+# parameter $1 is the name of the binary for the simulated machine
+# paramter $2 is the tag name for report and cout output file
+lastStepHpca() {
+    mv -i sesc_$1.$2 project[0-3]/
+    mv -i output.$2 project[0-3]/
+    cat $3.out
+    cat $3.err
+}
+
+#required $1 is the tag name for report and cout output file
+#required $2 is threads
+#optional $3 is additional option parameter
+project3(){
+    if [[ -z "$1 " ||  -z "$2" ]]; then
+        echo "ERROR missing paramters"
+        echo "* required \$1 is the tag name for report and cout output file"
+        echo "* required \$2 is threads"
+        echo "* optional \$3 is additional option parameter"
+        echo "* examples:"
+        echo "p3 test 4"
+        echo "p3 test 4 tee"
+        echo "p3 test 4 redir"
+    elif [[ $3 = "tee" ]]; then
+        get-sesc
+        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -olu.out -elu.err lu.mipseb -n512 -p$2 | tee output.$1
+        lastStepHpca lu.mipseb $1 lu
+    elif [[ $3 = "redir" ]]; then
+        get-sesc
+        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -olu.out -elu.err lu.mipseb -n512 -p$2 > output.$1
+        lastStepHpca lu.mipseb $1 lu
+    else
+        get-sesc
+        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -olu.out -elu.err lu.mipseb -n512 -p$2
+    fi
+}
+
+#required $1 is the tag name for report and cout output file
+#optional $2 is additional option parameter
+project2(){
+    if [[ -z "$1" ]]; then
+        echo "ERROR missing paramters"
+        echo "* required \$1 is the tag name for report and cout output file"
+        echo "* optional \$2 is additional option parameter"
+        echo "* examples:"
+        echo "p2 test"
+        echo "p2 test tee"
+        echo "p2 test redir"
+    elif [[ $2 = "tee" ]]; then
+        get-sesc
+        grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
+        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp4-noc.conf -iInput/input.256 -ofmm.out -efmm.err fmm.mipseb -p 1 | tee output.$1
+        lastStepHpca fmm.mipseb $1 fmm
+    elif [[ $2 = "redir" ]]; then
+        get-sesc
+        grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
+        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp4-noc.conf -iInput/input.256 -ofmm.out -efmm.err fmm.mipseb -p 1 > output.$1
+        lastStepHpca fmm.mipseb $1 fmm
+    else
+        get-sesc
+        grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
+        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp4-noc.conf -iInput/input.256 -ofmm.out -efmm.err fmm.mipseb -p 1
+    fi
 }
