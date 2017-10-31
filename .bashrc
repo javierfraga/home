@@ -230,32 +230,54 @@ lastStepHpca() {
 #required $2 is threads
 #optional $3 is additional option parameter
 project3(){
-    if [[ -z "$1" ||  -z "$2" ||  $2 != "tee" ||  $2 != "redir" ]]; then
+    if [[ -z "$1" ||  -z "$2" ]]; then
         echo "ERROR missing/incorrect paramters"
         echo "* required \$1 is the tag name for report and cout output file"
         echo "* required \$2 is threads"
         echo "* optional \$3 is additional option parameter"
+        echo "* optional \$4 is additional option parameter for matrix size"
         echo "* examples:"
         echo "p3 test 4"
         echo "p3 test 4 tee"
         echo "p3 test 4 redir"
+        echo "p3 test 4 redir 128"
     elif [[ $3 = "tee" ]]; then
         get-sesc
         grep --color=auto -n -E "procsPerNode " ~/sesc/confs/cmp4-noc.conf -A 3
         grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
-        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -o$1.out -e$1.err lu.mipseb -n512 -p$2 | tee output.$1
+        if [[ -n "$4" ]]; then
+            echo "using -n$4"
+            ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -o$1.out -e$1.err lu.mipseb -n$4 -p$2 | tee output.$1
+        else
+            echo "using -n512"
+            ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -o$1.out -e$1.err lu.mipseb -n512 -p$2 | tee output.$1
+        fi
         lastStepHpca lu.mipseb $1 lu
     elif [[ $3 = "redir" ]]; then
         get-sesc
         grep --color=auto -n -E "procsPerNode " ~/sesc/confs/cmp4-noc.conf -A 3
         grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
-        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -o$1.out -e$1.err lu.mipseb -n512 -p$2 > output.$1
+        if [[ -n "$4" ]]; then
+            echo "using -n$4"
+            ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -o$1.out -e$1.err lu.mipseb -n$4 -p$2 > output.$1
+        else
+            echo "using -n512"
+            ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -o$1.out -e$1.err lu.mipseb -n512 -p$2 > output.$1
+        fi
         lastStepHpca lu.mipseb $1 lu
+    elif [[ -n "$3" ]]; then
+        echo "ERROR third parameter is not 'tee' or 'redir'"
     else
         get-sesc
         grep --color=auto -n -E "procsPerNode " ~/sesc/confs/cmp4-noc.conf -A 3
         grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
-        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -o$1.out -e$1.err lu.mipseb -n512 -p$2
+        if [[ -n "$4" ]]; then
+            echo "using -n$4"
+            ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -o$1.out -e$1.err lu.mipseb -n$4 -p$2
+        else
+            echo "using -n512"
+            ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -o$1.out -e$1.err lu.mipseb -n512 -p$2
+        fi
         cat $1.out
         cat $1.err
         rm -i $1.out
@@ -266,7 +288,7 @@ project3(){
 #required $1 is the tag name for report and cout output file
 #optional $2 is additional option parameter
 project2(){
-    if [[ -z "$1" ||  $2 != "tee" ||  $2 != "redir" ]]; then
+    if [[ -z "$1" ]]; then
         echo "ERROR missing/incorrect paramters"
         echo "* required \$1 is the tag name for report and cout output file"
         echo "* optional \$2 is additional option parameter"
@@ -284,6 +306,8 @@ project2(){
         grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
         ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp4-noc.conf -iInput/input.256 -o$1.out -e$1.err fmm.mipseb -p 1 > output.$1
         lastStepHpca fmm.mipseb $1 fmm
+    elif [[ -n "$2" ]]; then
+        echo "ERROR second parameter is not 'tee' or 'redir'"
     else
         get-sesc
         grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
