@@ -230,8 +230,8 @@ lastStepHpca() {
 #required $2 is threads
 #optional $3 is additional option parameter
 project3(){
-    if [[ -z "$1" ||  -z "$2" ]]; then
-        echo "ERROR missing paramters"
+    if [[ -z "$1" ||  -z "$2" ||  $2 != "tee" ||  $2 != "redir" ]]; then
+        echo "ERROR missing/incorrect paramters"
         echo "* required \$1 is the tag name for report and cout output file"
         echo "* required \$2 is threads"
         echo "* optional \$3 is additional option parameter"
@@ -266,8 +266,8 @@ project3(){
 #required $1 is the tag name for report and cout output file
 #optional $2 is additional option parameter
 project2(){
-    if [[ -z "$1" ]]; then
-        echo "ERROR missing paramters"
+    if [[ -z "$1" ||  $2 != "tee" ||  $2 != "redir" ]]; then
+        echo "ERROR missing/incorrect paramters"
         echo "* required \$1 is the tag name for report and cout output file"
         echo "* optional \$2 is additional option parameter"
         echo "* examples:"
