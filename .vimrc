@@ -664,6 +664,8 @@ let g:choosewin_overlay_enable = 1
 "textobj-line
 "nmap <leader>v  <Plug>(textobj-line-i)
 
+"Ctags vertical split 
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   eclim                                    "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
