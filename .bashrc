@@ -210,18 +210,28 @@ project2Old(){
 }
 # parameter $1 is the name of the binary for the simulated machine
 # paramter $2 is the tag name for report and cout output file
-lastStepHpca() {
+lastStepHpcaOld() {
     mv -i sesc_$1.$2 project[0-3]/
     mv -i output.$2 project[0-3]/
     cat $3.out
     cat $3.err
+}
+# parameter $1 is the name of the binary for the simulated machine
+# paramter $2 is the tag name for report and cout output file
+lastStepHpca() {
+    mv -i sesc_$1.$2 project[0-3]/
+    mv -i output.$2 project[0-3]/
+    cat $2.out
+    cat $2.err
+    rm -i $2.out
+    rm -i $2.err
 }
 
 #required $1 is the tag name for report and cout output file
 #required $2 is threads
 #optional $3 is additional option parameter
 project3(){
-    if [[ -z "$1 " ||  -z "$2" ]]; then
+    if [[ -z "$1" ||  -z "$2" ]]; then
         echo "ERROR missing paramters"
         echo "* required \$1 is the tag name for report and cout output file"
         echo "* required \$2 is threads"
@@ -232,15 +242,25 @@ project3(){
         echo "p3 test 4 redir"
     elif [[ $3 = "tee" ]]; then
         get-sesc
-        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -olu.out -elu.err lu.mipseb -n512 -p$2 | tee output.$1
+        grep --color=auto -n -E "procsPerNode " ~/sesc/confs/cmp4-noc.conf -A 3
+        grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
+        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -o$1.out -e$1.err lu.mipseb -n512 -p$2 | tee output.$1
         lastStepHpca lu.mipseb $1 lu
     elif [[ $3 = "redir" ]]; then
         get-sesc
-        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -olu.out -elu.err lu.mipseb -n512 -p$2 > output.$1
+        grep --color=auto -n -E "procsPerNode " ~/sesc/confs/cmp4-noc.conf -A 3
+        grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
+        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -o$1.out -e$1.err lu.mipseb -n512 -p$2 > output.$1
         lastStepHpca lu.mipseb $1 lu
     else
         get-sesc
-        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -olu.out -elu.err lu.mipseb -n512 -p$2
+        grep --color=auto -n -E "procsPerNode " ~/sesc/confs/cmp4-noc.conf -A 3
+        grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
+        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -o$1.out -e$1.err lu.mipseb -n512 -p$2
+        cat $1.out
+        cat $1.err
+        rm -i $1.out
+        rm -i $1.err
     fi
 }
 
@@ -258,16 +278,20 @@ project2(){
     elif [[ $2 = "tee" ]]; then
         get-sesc
         grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
-        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp4-noc.conf -iInput/input.256 -ofmm.out -efmm.err fmm.mipseb -p 1 | tee output.$1
+        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp4-noc.conf -iInput/input.256 -o$1.out -e$1.err fmm.mipseb -p 1 | tee output.$1
         lastStepHpca fmm.mipseb $1 fmm
     elif [[ $2 = "redir" ]]; then
         get-sesc
         grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
-        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp4-noc.conf -iInput/input.256 -ofmm.out -efmm.err fmm.mipseb -p 1 > output.$1
+        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp4-noc.conf -iInput/input.256 -o$1.out -e$1.err fmm.mipseb -p 1 > output.$1
         lastStepHpca fmm.mipseb $1 fmm
     else
         get-sesc
         grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
-        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp4-noc.conf -iInput/input.256 -ofmm.out -efmm.err fmm.mipseb -p 1
+        ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp4-noc.conf -iInput/input.256 -o$1.out -e$1.err fmm.mipseb -p 1
+        cat $1.out
+        cat $1.err
+        rm -i $1.out
+        rm -i $1.err
     fi
 }
