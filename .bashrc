@@ -187,7 +187,6 @@ for_each_do (){
 runOnce (){
 	pgrep $@ > /dev/null || ($@ &)
 }
-
 get_sesc(){
     if [[ -f /media/sf_vm-share/hpca/sesc.opt ]]; then
         mv /media/sf_vm-share/hpca/sesc.opt ~/sesc/
