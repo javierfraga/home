@@ -218,12 +218,16 @@ lastStepHpcaOld() {
 # parameter $1 is the name of the binary for the simulated machine
 # paramter $2 is the tag name for report and cout output file
 lastStepHpca() {
-    mv -i sesc_$1.$2 project[0-3]/
-    mv -i output.$2 project[0-3]/
     cat $2.out
     cat $2.err
+    du $2.err
+    du $2.out
+    du sesc_$1.$2
+    du -h output.$2
+    mv -i sesc_$1.$2 project[0-3]/
     rm -i $2.out
     rm -i $2.err
+    mv -i output.$2 project[0-3]/
 }
 
 #required $1 is the tag name for report and cout output file
@@ -243,8 +247,8 @@ project3(){
         echo "p3 test 4 redir 128"
     elif [[ $3 = "tee" ]]; then
         get-sesc
-        grep --color=auto -n -E "procsPerNode " ~/sesc/confs/cmp4-noc.conf -A 3
-        grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
+        grep --color=auto -n -E "procsPerNode " ~/sesc/confs/cmp16-noc.conf -A 3
+        grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp16-noc.conf -A 16
         if [[ -n "$4" ]]; then
             echo "using -n$4"
             ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -o$1.out -e$1.err lu.mipseb -n$4 -p$2 | tee output.$1
@@ -255,8 +259,8 @@ project3(){
         lastStepHpca lu.mipseb $1 lu
     elif [[ $3 = "redir" ]]; then
         get-sesc
-        grep --color=auto -n -E "procsPerNode " ~/sesc/confs/cmp4-noc.conf -A 3
-        grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
+        grep --color=auto -n -E "procsPerNode " ~/sesc/confs/cmp16-noc.conf -A 3
+        grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp16-noc.conf -A 16
         if [[ -n "$4" ]]; then
             echo "using -n$4"
             ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -o$1.out -e$1.err lu.mipseb -n$4 -p$2 > output.$1
@@ -269,8 +273,8 @@ project3(){
         echo "ERROR third parameter is not 'tee' or 'redir'"
     else
         get-sesc
-        grep --color=auto -n -E "procsPerNode " ~/sesc/confs/cmp4-noc.conf -A 3
-        grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp4-noc.conf -A 16
+        grep --color=auto -n -E "procsPerNode " ~/sesc/confs/cmp16-noc.conf -A 3
+        grep --color=auto -n -E "\[DMemory\]" ~/sesc/confs/cmp16-noc.conf -A 16
         if [[ -n "$4" ]]; then
             echo "using -n$4"
             ~/sesc/sesc.opt -f $1 -c ~/sesc/confs/cmp16-noc.conf -o$1.out -e$1.err lu.mipseb -n$4 -p$2
