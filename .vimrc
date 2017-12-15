@@ -16,7 +16,8 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'd11wtq/ctrlp_bdelete.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'ludovicchabant/vim-gutentags'
+" vim-glutentags is running cpu 100%
+"Plugin 'ludovicchabant/vim-gutentags'
 " styling
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Yggdroot/indentLine'
