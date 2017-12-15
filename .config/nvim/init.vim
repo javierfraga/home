@@ -1,1 +1,1 @@
-/home/cs6290/.vimrc
+/home/javier/.vimrc
