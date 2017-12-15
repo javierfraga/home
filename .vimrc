@@ -45,7 +45,8 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 Plugin 'sjl/gundo.vim'
 Plugin 'terryma/vim-expand-region'
-Plugin 'maxbrunsfeld/vim-yankstack'
+" vim-yankstack break vim-surrond
+"Plugin 'maxbrunsfeld/vim-yankstack'
 Plugin 't9md/vim-choosewin'
 " Autocompletion
 Plugin 'Valloric/YouCompleteMe'
