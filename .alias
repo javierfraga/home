@@ -50,14 +50,15 @@ alias server='python -m SimpleHTTPServer'
 alias eclimd='~/documents/eclipse/eclimd'
 alias mongo-me='mongod --storageEngine=mmapv1 --dbpath /data/db'
 alias apache-me="sudo ln -s $PWD /var/www/htdocs/"
-alias npm-me="git clone https://gist.github.com/17e5277931727ccc8c84a311537479cd.git; cat 17e5277931727ccc8c84a311537479cd/package.json >> package.json ; rm -rf 17e5277931727ccc8c84a311537479cd/;vim package.json"
-alias tern-me="git clone https://gist.github.com/987ac21954dda865e29d.git; cat 987ac21954dda865e29d/.tern-project >> .tern-project ; rm -rf 987ac21954dda865e29d/;vim .tern-project"
+alias npm-me="git clone https://gist.github.com/javierfraga/17e5277931727ccc8c84a311537479cd.git; cat 17e5277931727ccc8c84a311537479cd/package.json >> package.json ; rm -rf 17e5277931727ccc8c84a311537479cd/;vim package.json"
+alias tern-me="git clone https://gist.github.com/javierfraga/987ac21954dda865e29d.git; cat 987ac21954dda865e29d/.tern-project >> .tern-project ; rm -rf 987ac21954dda865e29d/;vim .tern-project"
 alias mount-me='sudo tail -f /var/log/messages -n 25'
 alias xcape-me='~/.xcape'
+#alias att-me='sudo service iptables save;sudo service iptables stop;export http_proxy=http://one.proxy.att.com:8080;export https_proxy=http://one.proxy.att.com:8080;export HTTP_PROXY=http://one.proxy.att.com:8080;export HTTPS_PROXY=http://one.proxy.att.com:8080;git config --global http.proxy http://one.proxy.att.com:8080;git config --global https.proxy http://one.proxy.att.com:8080;git config --global url."https://".insteadOf git://;npm config set proxy http://one.proxy.att.com:8080;npm config set https-proxy http://one.proxy.att.com:8080;'
 alias att-me='sudo service iptables save;sudo service iptables stop;'
-alias gitignore-me="git clone https://gist.github.com/46edd3183edf2cf62fd2.git; cat 46edd3183edf2cf62fd2/.gitignore >> .gitignore ; rm -rf 46edd3183edf2cf62fd2/;vim .gitignore"
-alias cpp-me="git clone https://gist.github.com/9a53991d4d117408f14cc71081aefd05.git; cat 9a53991d4d117408f14cc71081aefd05/Makefile >> Makefile ; rm -rf 9a53991d4d117408f14cc71081aefd05/;vim Makefile"
-alias docs-me="git clone https://gist.github.com/javalanche/e93e0fd495d552cf477bee09bc830f93; mv e93e0fd495d552cf477bee09bc830f93/gnu-license .; mv e93e0fd495d552cf477bee09bc830f93/us-constitution .; rm -rf e93e0fd495d552cf477bee09bc830f93/;"
+alias gitignore-me="git clone https://gist.github.com/javierfraga/46edd3183edf2cf62fd2.git; cat 46edd3183edf2cf62fd2/.gitignore >> .gitignore ; rm -rf 46edd3183edf2cf62fd2/;vim .gitignore"
+alias cpp-me="git clone https://gist.github.com/javierfraga/9a53991d4d117408f14cc71081aefd05.git; cat 9a53991d4d117408f14cc71081aefd05/Makefile >> Makefile ; rm -rf 9a53991d4d117408f14cc71081aefd05/;vim Makefile"
+alias docs-me="git clone https://gist.github.com/javierfraga/e93e0fd495d552cf477bee09bc830f93; mv e93e0fd495d552cf477bee09bc830f93/gnu-license .; mv e93e0fd495d552cf477bee09bc830f93/us-constitution .; rm -rf e93e0fd495d552cf477bee09bc830f93/;"
 alias udacity-me=" sed -i '/^[0-9].*$/d' *.srt;sed -i '/^\s*$/d' *.srt;perl -p -i -e 's/\n/ /' *.srt;"
 alias onenote-me='for i in *; do printf "\n$i">> onenote; echo >> onenote; cat "$i">> onenote; echo >> onenote; done ;'
 alias gits='git status'
