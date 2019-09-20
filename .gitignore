@@ -47,11 +47,14 @@
 .config/monitors.xml
 .config/user-dirs.dirs
 .config/user-dirs.locale
+.config/QtProject.conf
+.config/mimeapps.list
+.config/nvim/.netrwhist
 
 # this will add any files in test-dir/, if they exist
 !test-dir
 !test-dir/*
 # this will add any files in test-dir/ one level deep, if they exist
 !test-dir/*/*
-# this will add ALL files in test-dir/ 
+# this will add ALL files in test-dir/
 !test-dir/**

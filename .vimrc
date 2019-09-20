@@ -151,6 +151,14 @@ set diffexpr=DiffW()
 " vimdiff wrap text
 autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 set diffopt+=vertical
+"white space removal from file
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+command! WhitespaceTrimRemove call TrimWhitespace()
+"nmap <leader>e :TrimWhitespace<cr> " https://vi.stackexchange.com/questions/454/whats-the-simplest-way-to-strip-trailing-whitespace-from-all-lines-in-a-file#answer-456
 
 " file and path name copies custom commands
 command! ChangeDirHere cd %:p:h
@@ -161,7 +169,7 @@ command! GetFullPath redir @+ | echo expand('%:p') | redir END | sleep 100ms | l
 
 function! TestMe(...)
 	"echo a:1
-	if join(a:000, ' ') =~ "\a" 
+	if join(a:000, ' ') =~ "\a"
 		echo "true"
 	else
 		echo "false"
@@ -191,7 +199,7 @@ function! GetChoice()
 	redraw	" this is only way input is not received twice
 	call inputrestore()
 	echo choice . " was selected"
-	return choice 
+	return choice
 endfunction
 
 function! GetFindLocation(lists)
@@ -251,7 +259,7 @@ endfunction
 function! CommitSvnFiles(...)
 	if len(g:svnFiles) > 0
 		execute("!svn ci -m " . join(a:000, ' ') . " " . join(g:svnFiles,' '))
-		let g:svnFiles=[]	
+		let g:svnFiles=[]
 		"try
 			"execute("!svn ci -m " . join(a:000, ' ') . " " . join(g:svnFiles,' '))
 			"let success=1
@@ -260,18 +268,18 @@ function! CommitSvnFiles(...)
 			"let success=0
 		"endtry
 		"if success == 1
-			"let g:svnFiles=[]	
+			"let g:svnFiles=[]
 			"echo "g:svnFiles has not been emptied"
 		"endif
 	else
-		echo "g:svnFiles was empty" g:svnFiles	
+		echo "g:svnFiles was empty" g:svnFiles
 	endif
 endfunction
 
 " check file change every 4 seconds ('CursorHold') and reload the buffer upon
 " detecting change
 set autoread
-au CursorHold * checktime 
+au CursorHold * checktime
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
@@ -374,7 +382,7 @@ endfun
 autocmd BufRead,BufNewFile * :call IgnoreCamelCaseSpell()
 
 " vertical line indentation
-set list lcs=tab:\|\ 
+set list lcs=tab:\|\
 let g:indentLine_color_term = 239
 let g:indentLine_color_gui = '#09AA08'
 let g:indentLine_char = '|'
@@ -429,7 +437,7 @@ nmap <SPACE>w <C-w>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set clipboard=unnamedplus
 " copy and replace in visual mode only
-"vnoremap <C-r> "hy:s/<C-r>h//<left> 
+"vnoremap <C-r> "hy:s/<C-r>h//<left>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                vim-repeats                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -583,7 +591,7 @@ let g:tern_show_arguments_hints='on_hold'
  let g:airline#extensions#csv#enabled = 1
 
 " change how columns are displayed. >
-  let g:airline#extensions#csv#column_display = 'Number' 
+  let g:airline#extensions#csv#column_display = 'Number'
   let g:airline#extensions#csv#column_display = 'Name'
 
 " If you want vim to auto-reload your configuration, you must add the following commands :
@@ -606,9 +614,9 @@ vmap <leader>// :Tabularize /\/\/<CR>
 " http://www.vim.org/scripts/script.php?script_id=2075
 " You can add further tags with:
 let g:html_indent_inctags = "body,tbody,script"
-"let g:html_indent_zerotags = "meta,head" 
+"let g:html_indent_zerotags = "meta,head"
 
-" You should at least change prefix key like this 
+" You should at least change prefix key like this
 map <leader>k <Plug>(easymotion-s)
 map f <Plug>(easymotion-s)
 
@@ -647,8 +655,8 @@ let g:session_directory='~/.vim/sessions'
 let g:session_autoload='no'
 let g:session_autosave='yes'
 let g:session_command_aliases = 1
-nnoremap <leader>so :SessionOpen 
-nnoremap <leader>ss :SessionSave 
+nnoremap <leader>so :SessionOpen
+nnoremap <leader>ss :SessionSave
 nnoremap <leader>sd :SessionDelete<CR>
 nnoremap <leader>sc :SessionClose<CR>
 
@@ -666,7 +674,7 @@ let g:choosewin_overlay_enable = 1
 "textobj-line
 "nmap <leader>v  <Plug>(textobj-line-i)
 
-"Ctags vertical split 
+"Ctags vertical split
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   eclim                                    "

@@ -322,3 +322,18 @@ project2(){
         rm -i $1.err
     fi
 }
+
+# added by Anaconda3 installer
+export PATH="/home/javier/updates/anaconda3/bin:$PATH"
+
+# added by Anaconda2 installer
+export PATH="/home/javier/updates/anaconda2/bin:$PATH"
+
+# ml4t gatech
+#export PYTHONPATH=/home/javier/documents/gatech/ml4t/2018-spring/ML4T_2018Spring/
+export PYTHONPATH=/home/javier/documents/gatech/ml4t/2018-fall/ML4T_2018Fall/
+export PATH="/home/javier/.local/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
