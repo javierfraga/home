@@ -565,7 +565,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 ""vim-airline statusline appear all the time
 set laststatus=2
-"set encoding=utf-8
+set encoding=utf-8
 
 " debug ycmd server shutdown
 let g:ycm_server_keep_logfiles = 1
