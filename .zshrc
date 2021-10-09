@@ -1,9 +1,11 @@
 #######################################################################
 #                               PROMPT                                #
 #######################################################################
+# https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
+# https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html
+# https://unix.stackexchange.com/questions/53789/whats-the-newline-symbol-in-zshs-ps1
 # Enable colors and change prompt:
 autoload -U colors && colors
-# https://unix.stackexchange.com/questions/53789/whats-the-newline-symbol-in-zshs-ps1
 NEWLINE=$'\n'
 PROMPT='%F{red}[%f''%F{yellow}${USER}%f''%F{green}@%f''%F{blue}${HOST}%f''%F{red}]%f'' %~${NEWLINE}${CWDIR}'
 
