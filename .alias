@@ -108,3 +108,4 @@ alias report='~/sesc/scripts/report.pl $@'
 alias gatech-ml4t='source /home/javier/documents/gatech/ml4t/2018-fall/ML4T_2018Fall/ml4t-venv/bin/activate'
 alias gatech-cp='source activate CS6475'
 alias gatech='rm *.json'
+alias udacity-me=" sed -i '/^[0-9].*$/d' *.srt;sed -i '/^\s*$/d' *.srt;perl -p -i -e 's/\n/ /' *.srt;"
