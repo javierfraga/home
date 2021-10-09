@@ -8,7 +8,7 @@
 # Enable colors and change prompt:
 autoload -U colors && colors
 NEWLINE=$'\n'
-PROMPT='%F{red}[%f''%F{yellow}${USER}%f''%F{green}@%f''%F{blue}${HOST}%f''%F{red}]%f'' %~${NEWLINE}${CWDIR}'
+PROMPT='%F{red}[%f''%F{yellow}${USER}%f''%F{green}@%f''%F{blue}${HOST}%f''%F{red}]%f'' %F{green}%~%f''${NEWLINE}'
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 #######################################################################
