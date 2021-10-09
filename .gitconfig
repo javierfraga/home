@@ -1,11 +1,14 @@
 [color]
-	ui = auto
+    ui = auto
 [core]
-	pager = less -FXRS -r
-	editor = nvim
+    pager = less -FXRS -r
+    editor = nvim
 [user]
-	name = Javier Fraga
-	email = javier.s.fraga@gmail.com
+    name = Javier Fraga
+    email = javier.s.fraga@gmail.com
+;[user]
+    ;name = Fraga, Javier (jf732h)
+    ;email = jf732h@us.att.com
 [difftool]
     prompt = true
 [diff]
@@ -13,4 +16,10 @@
 [difftool "nvimdiff"]
     cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\""
 [credential]
-	helper = cache --timeout 3600
+    helper = cache --timeout 3600
+;[http]
+    ;proxy = http://sub.proxy.att.com:8080
+;[https]
+    ;proxy = http://sub.proxy.att.com:8080
+;[url "https://"]
+    ;insteadOf = git://

@@ -1,11 +1,14 @@
-alias ll='ls -alF'
-alias la='ls -AF'
+alias ll='ls -alFG'
+alias la='ls -AFG'
+alias ls='ls -FG'
 #alias l='ls -CF'
 alias grep='grep --color=auto -n -E'
 alias fgrep='fgrep --color=auto -n'
 alias egrep='egrep --color=auto -n'
 alias less='less -NFXRS'
+alias tree='tree -C'
 alias slack='ssh javier@192.168.1.6'
+alias z='vim ~/.zshrc'
 alias a='vim ~/.alias'
 alias t='vim ~/.tmux.conf'
 alias n='vim ~/.npmrc'
@@ -15,7 +18,7 @@ alias g='vim ~/.gitconfig'
 alias gi='vim ~/.gitignore'
 alias l='vim ~/.config/awesome/rc.lua'
 alias newalias='source ~/.alias'
-alias s='source ~/.bashrc'
+alias S='source ~/.bashrc'
 alias tsm.stop='transmission-remote -q'
 alias absolute='xsetwacom set "Wacom Serial Penabled 2FG Touchscreen touch" mode absolute'
 alias package.slackware='dpkg --get-selections | grep -v deinstall > ~/packages.installed'
@@ -54,8 +57,9 @@ alias npm-me="git clone https://gist.github.com/javierfraga/17e5277931727ccc8c84
 alias tern-me="git clone https://gist.github.com/javierfraga/987ac21954dda865e29d.git; cat 987ac21954dda865e29d/.tern-project >> .tern-project ; rm -rf 987ac21954dda865e29d/;vim .tern-project"
 alias mount-me='sudo tail -f /var/log/messages -n 25'
 alias xcape-me='~/.xcape'
+alias att-me='sudo service iptables save;sudo service iptables stop;export http_proxy=http://sub.proxy.att.com:8080;export https_proxy=http://sub.proxy.att.com:8080;export HTTP_PROXY=http://sub.proxy.att.com:8080;export HTTPS_PROXY=http://sub.proxy.att.com:8080;git config --global http.proxy http://sub.proxy.att.com:8080;git config --global https.proxy http://sub.proxy.att.com:8080;git config --global url."https://".insteadOf git://;npm config set proxy http://sub.proxy.att.com:8080;npm config set https-proxy http://sub.proxy.att.com:8080;'
 #alias att-me='sudo service iptables save;sudo service iptables stop;export http_proxy=http://one.proxy.att.com:8080;export https_proxy=http://one.proxy.att.com:8080;export HTTP_PROXY=http://one.proxy.att.com:8080;export HTTPS_PROXY=http://one.proxy.att.com:8080;git config --global http.proxy http://one.proxy.att.com:8080;git config --global https.proxy http://one.proxy.att.com:8080;git config --global url."https://".insteadOf git://;npm config set proxy http://one.proxy.att.com:8080;npm config set https-proxy http://one.proxy.att.com:8080;'
-alias att-me='sudo service iptables save;sudo service iptables stop;'
+#alias att-me='sudo service iptables save;sudo service iptables stop;'
 alias gitignore-me="git clone https://gist.github.com/javierfraga/46edd3183edf2cf62fd2.git; cat 46edd3183edf2cf62fd2/.gitignore >> .gitignore ; rm -rf 46edd3183edf2cf62fd2/;vim .gitignore"
 alias cpp-me="git clone https://gist.github.com/javierfraga/9a53991d4d117408f14cc71081aefd05.git; cat 9a53991d4d117408f14cc71081aefd05/Makefile >> Makefile ; rm -rf 9a53991d4d117408f14cc71081aefd05/;vim Makefile"
 alias docs-me="git clone https://gist.github.com/javierfraga/e93e0fd495d552cf477bee09bc830f93; mv e93e0fd495d552cf477bee09bc830f93/gnu-license .; mv e93e0fd495d552cf477bee09bc830f93/us-constitution .; rm -rf e93e0fd495d552cf477bee09bc830f93/;"
@@ -78,8 +82,8 @@ alias gitm='git commit -m'
 alias gitam='git commit -am'
 alias gitp='git push origin master'
 alias gitpa='git push --all'
-alias gitl='git log --oneline --graph --name-status --decorate'
-alias gitlp='git log -p'
+alias gitl='git log --oneline --graph --name-status --decorate --pretty=format:"%an"'
+alias gitlp='git log -p --pretty=format:"%an"'
 alias git-delete-all='find . -path ./.git -prune -o -exec rm -rf {} \; 2> /dev/null'
 alias svns='svn status'
 alias svnm='svn ci -m'
@@ -91,7 +95,7 @@ alias killhazelcast='/common/hazelcast-3.6.2/hazelcast-3.6.2/bin/stop.sh;sleep 1
 alias hazelcast="/common/hazelcast-3.6.2/hazelcast-3.6.2/bin/start.sh"
 alias cd='pushd'
 alias po='popd'
-alias vim=vimSwitch
+alias vim=nvim
 alias ebiz-move=mvEbizEar
 alias chrome='/opt/google/chrome/google-chrome'
 alias lock='xscreensaver-command -lock'
