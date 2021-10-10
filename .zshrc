@@ -38,13 +38,14 @@ zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 #######################################################################
 # YouTube ref config: zsh: Syntax Highlighting, vi-mode, Autocomplete, more
 # YouTube ref config: https://www.youtube.com/watch?v=eLEo4OQ-cuQ
+#https://stackoverflow.com/questions/24513873/git-tab-completion-not-working-in-zsh-on-mac
 #History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
 # Basic auto/tab complete:
-autoload -U compinit
+autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
