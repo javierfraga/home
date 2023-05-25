@@ -5,8 +5,12 @@ snippet t "Simple tag" b
 $0
 endsnippet
 
-snippet ti "Inline tag" 
-<${1:tag}${2: ${3:input}="${4}"}>${5:content}</${1/([\w:._-]+).*/$1/}> $0
+snippet ti "Inline tag"
+<${1:tag}${2: ${3:input}="${4}"}>${5:content}</${1/([\w:._-]+).*/$1/}>$0
+endsnippet
+
+snippet ts "Inline single bracket tag"
+<${1:tag}${2: ${3:input}="${4}"} />$0
 endsnippet
 
 snippet todo "TODO:" b

@@ -15,6 +15,10 @@
     tool = nvimdiff
 [difftool "nvimdiff"]
     cmd = "nvim -d -u ~/.vimrc \"$LOCAL\" \"$REMOTE\""
+[merge]
+    tool = vimdiff
+[mergetool "vimdiff"]
+    path = nvim
 [credential]
     helper = cache --timeout 3600
 ;[http]

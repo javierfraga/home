@@ -87,6 +87,7 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
+
 #######################################################################
 #                               ctrl-o                                #
 #######################################################################
@@ -101,6 +102,15 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
+
+
+# Install npm packages globally without sudo on OS X and Linux
+NPM_PACKAGES="${HOME}/.npm-packages"
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+PATH="$NPM_PACKAGES/bin:$PATH"
+
+# LunarVim
+export PATH=/Users/jf732h/.local/bin:$PATH
 
 #######################################################################
 #                               ctrl-e                                #
@@ -136,7 +146,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 #######################################################################
-#                              selenium                               #
+#                              selenium / chromedriver                #
 #######################################################################
 export PATH="/Users/jf732h/selenium:$PATH"
 

@@ -69,6 +69,7 @@ alias gits='git status'
 alias gita='git add'
 alias gitc='git checkout'
 alias gitd='git diff'
+alias gitdcsv='git diff --word-diff-regex="[^,]+"'
 alias gitb='git branch -vva'
 alias gitf='git fetch origin'
 alias gitr='git remote -v'
@@ -80,11 +81,20 @@ alias gitdts='git difftool --staged'
 alias gitdth='git difftool HEAD^ HEAD'
 alias gitm='git commit -m'
 alias gitam='git commit -am'
-alias gitp='git push origin master'
+alias gitp='git push origin main'
 alias gitpa='git push --all'
-alias gitl='git log --oneline --graph --name-status --decorate --pretty=format:"%an"'
+#alias gitl='git log --oneline --graph --name-status --decorate --pretty=format:"%an"'
+alias gitl='git log --oneline --graph --name-status --decorate'
 alias gitlp='git log -p --pretty=format:"%an"'
 alias git-delete-all='find . -path ./.git -prune -o -exec rm -rf {} \; 2> /dev/null'
+# List all files commited in local repo
+alias gittree='git ls-tree --full-tree -r --name-only HEAD'
+# Check if local git repo is ahead/behind remote
+alias gitsb='git status -sb'
+# Remove FILE from .git tracking
+alias gitrmf='git rm --cached'
+# Remove DIR from .git tracking
+alias gitrmd='git rm -r --cached'
 alias svns='svn status'
 alias svnm='svn ci -m'
 alias svnd='svn diff "$1" | vim -R -'
@@ -98,6 +108,7 @@ alias po='popd'
 alias vim=nvim
 alias ebiz-move=mvEbizEar
 alias chrome='/opt/google/chrome/google-chrome'
+alias chromemac='f(){"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --remote-debugging-port="$@" --user-data-dir="/Users/jf732h/Downloads/tmp/chrome"; unset -f f;}; f'
 alias lock='xscreensaver-command -lock'
 alias pcsleep="sudo /usr/sbin/pm-suspend"
 alias fixclock=' /etc/rc.d/rc.ntpd stop; ntpdate pool.ntp.org; /etc/rc.d/rc.ntpd start'
@@ -109,3 +120,8 @@ alias gatech-ml4t='source /home/javier/documents/gatech/ml4t/2018-fall/ML4T_2018
 alias gatech-cp='source activate CS6475'
 alias gatech='rm *.json'
 alias udacity-me=" sed -i '/^[0-9].*$/d' *.srt;sed -i '/^\s*$/d' *.srt;perl -p -i -e 's/\n/ /' *.srt;"
+#ref: https://unix.stackexchange.com/questions/3773/how-to-pass-parameters-to-an-alias
+alias mkdircd='f(){ mkdir -p "$@" && cd $_;  unset -f f; }; f'
+alias py='python'
+alias noconda='conda deactivate; source env/bin/activate'
+alias m3u8dl='f(){ffmpeg -protocol_whitelist file,http,https,tcp,tls,crypto,httpproxy -i $1 -c copy $2.mp4; unset -f f;}; f'

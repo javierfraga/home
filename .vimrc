@@ -12,10 +12,13 @@ filetype off                  " required
 Plugin 'gmarik/Vundle.vim'
 " navigation
 Plugin 'scrooloose/nerdtree'
-Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'Lokaltog/vim-easymotion'
+Plugin 'phaazon/hop.nvim'
+Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'd11wtq/ctrlp_bdelete.vim'
-Plugin 'majutsushi/tagbar'
+Plugin 'xolox/vim-easytags'
+"Plugin 'majutsushi/tagbar'
 " vim-glutentags is running cpu 100%
 "Plugin 'ludovicchabant/vim-gutentags'
 " styling
@@ -35,6 +38,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'csexton/trailertrash.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'ekalinin/Dockerfile.vim'
 " absolute essentials
 Plugin 'bling/vim-airline'
 Plugin 'kana/vim-arpeggio'
@@ -52,10 +56,11 @@ Plugin 't9md/vim-choosewin'
 " Autocompletion
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'beloglazov/vim-online-thesaurus'
-Plugin 'ternjs/tern_for_vim'
+"Plugin 'ternjs/tern_for_vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'matthewsimo/angular-vim-snippets'
+Plugin 'mlaursen/vim-react-snippets'
 " not using but would like to improve or use in future or just try later
 "Plugin 'chrisbra/csv.vim'
 "Plugin 'kana/vim-textobj-user'
@@ -80,6 +85,7 @@ Plugin 'matthewsimo/angular-vim-snippets'
 set runtimepath^=/home/javier/.vim/plugin/neat.vim
 "
 let g:NERDTreeDirArrows=0
+let g:NERDTreeShowHidden=1
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
 " Last change:	2011 Apr 15
 "
@@ -93,6 +99,7 @@ let g:NERDTreeDirArrows=0
 if v:progname =~? "evim"
   finish
 endif
+
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -120,8 +127,8 @@ set backspace=indent,eol,start
 set viminfo='100,f1
 set dict+=/usr/share/dict/words
 "CursorLine highlight
-nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
-nnoremap <silent> <Leader>w :exe "let m=matchadd('WildMenu','\\<\\w*\\%" . line(".") . "l\\%" . col(".") . "c\\w*\\>')"<CR>
+nnoremap <silent> <Leader><S-l> ml:execute 'match Search /\%'.line('.').'l/'<CR>
+nnoremap <silent> <Leader><S-w> :exe "let m=matchadd('WildMenu','\\<\\w*\\%" . line(".") . "l\\%" . col(".") . "c\\w*\\>')"<CR>
 noremap <silent> <Leader><CR> :call clearmatches()<CR>
 "augroup CursorLine
   "au!
@@ -133,6 +140,18 @@ noremap <silent> <Leader><CR> :call clearmatches()<CR>
     "hi cursorline cterm=bold ctermbg=darkgrey
 "endfunction
 "autocmd VimEnter * call s:SetCursorLine()
+set guicursor+=a:-Cursor-blinkwait1-blinkoff1-blinkon1
+"set cursorline
+"hi clear CursorLine
+"highlight CursorLineNR ctermbg=red
+
+""""""""""""""""""""""""""""""""""""""""""""""""
+"  * and # super command prevent initial jump  "
+""""""""""""""""""""""""""""""""""""""""""""""""
+"ref: https://stackoverflow.com/questions/4256697/vim-search-and-highlight-but-do-not-jump
+nnoremap * :keepjumps normal! mi*`i<CR>
+nnoremap # :keepjumps normal! mi#`i<CR>
+
 
 " vimdiff whitespace removal
 set diffopt+=iwhite
@@ -277,9 +296,11 @@ function! CommitSvnFiles(...)
 endfunction
 
 " check file change every 4 seconds ('CursorHold') and reload the buffer upon
+"au CursorHold * checktime
 " detecting change
+" https://vim.fandom.com/wiki/Have_Vim_check_automatically_if_the_file_has_changed_externally
 set autoread
-au CursorHold * checktime
+au FocusGained,BufEnter * :checktime
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
@@ -396,7 +417,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
- let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
+let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
 
 "Defines the directory private snippet definition
 "files are stored in. For example, if the variable
@@ -411,6 +432,10 @@ let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 "also want the Lua snippets to be available you can issue the command >
 "The priority will then be html -> xml -> all.
 let g:UltiSnipsAddFiletypes='html.xml'
+let g:UltiSnipsAddFiletypes='js.html'
+"This works below
+autocmd FileType javascript UltiSnipsAddFiletypes js.html
+autocmd FileType html UltiSnipsAddFiletypes xml
 
 "delimitMate setting
 let delimitMate_expand_cr = 1
@@ -423,10 +448,26 @@ let delimitMate_expand_space = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 " Easy bindings for its various modes
-nmap <leader>f :CtrlPBuffer<cr>
-nmap <leader>fa :CtrlPMixed<cr>
-nmap <leader>fm :CtrlPMRU<cr>
-" buffer delete in Ctrl-P
+nmap <leader><S-f> :CtrlPBuffer<cr>
+nmap <leader><S-f>a :CtrlPMixed<cr>
+nmap <leader><S-f>m :CtrlPMRU<cr>
+
+"Not working
+"reference: https://github.com/kien/ctrlp.vim/issues/280#issuecomment-42512047
+"let g:ctrlp_buffer_func = { 'enter': 'MyCtrlPMappings' }
+
+"func! MyCtrlPMappings()
+    "nnoremap <buffer> <silent> <c-@> :call <sid>DeleteBuffer()<cr>
+"endfunc
+
+"func! s:DeleteBuffer()
+    "let line = getline('.')
+    "let bufid = line =~ '\[\d\+\*No Name\]$' ? str2nr(matchstr(line, '\d\+'))
+        "\ : fnamemodify(line[2:], ':p')
+    "exec "bd" bufid
+    "exec "norm \<F5>"
+"endfunc
+ "buffer delete in Ctrl-P
 call ctrlp_bdelete#init()
 
 " " Window remap to something more comfortable
@@ -574,7 +615,8 @@ let g:ycm_server_log_level = 'debug'
 let g:ycm_disable_for_files_larger_than_kb = 0
 "for no .ycm_global_ycm_extra_conf found error in C program
 "let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='$HOME/ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -617,8 +659,19 @@ let g:html_indent_inctags = "body,tbody,script"
 "let g:html_indent_zerotags = "meta,head"
 
 " You should at least change prefix key like this
-map <leader>k <Plug>(easymotion-s)
-map f <Plug>(easymotion-s)
+"map <leader>k <Plug>(easymotion-s)
+"map f <Plug>(easymotion-s)
+lua require'hop'.setup()
+
+"lua << EOF
+"require'hop'.setup()
+"EOF
+map <leader>f <cmd>HopChar1<CR>
+omap <leader>f <cmd>HopChar1<CR>
+map <leader>w <cmd>HopWord<CR>
+omap <leader>w <cmd>HopWord<CR>
+map <leader>l <cmd>HopLine<CR>
+omap <leader>l <cmd>HopLine<CR>
 
 " pangloss/vim-javascript Enables HTML/CSS syntax highlighting in your
 " JavaScript file.
@@ -676,6 +729,10 @@ let g:choosewin_overlay_enable = 1
 
 "Ctags vertical split
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+
+"Plugin 'majutsushi/tagbar'
+nmap <F8> :TagbarToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   eclim                                    "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
