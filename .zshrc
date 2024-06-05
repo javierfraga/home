@@ -174,6 +174,20 @@ function getenm() {
     fi
 }
 
+#######################################################################
+#                              zsh-completions                        #
+#######################################################################
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+  source <(kubectl completion zsh)
+  source <(minikube completion zsh)
+  source <(docker completion zsh)
+fi
+
+
 
 #######################################################################
 #                       zsh-syntax-highlighting                       #
