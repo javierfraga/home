@@ -110,7 +110,7 @@ NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 PATH="$NPM_PACKAGES/bin:$PATH"
 
 # LunarVim
-export PATH=/Users/jf732h/.local/bin:$PATH
+export PATH=/Users/javier/.local/bin:$PATH
 
 #######################################################################
 #                               ctrl-e                                #
@@ -179,4 +179,5 @@ function getenm() {
 #                       zsh-syntax-highlighting                       #
 #######################################################################
 #Load zsh-syntax-highlighting; should be last.
+#                              Functions                              #
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

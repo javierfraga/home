@@ -132,4 +132,4 @@ alias obsidianwork='cd "/Users/jf732h/OneDrive - AT&T Services, Inc/obsidian-vau
 alias lunchlearn='cd "/Users/jf732h/OneDrive - AT&T Services, Inc/Documents - Talamo Lunch and Learn"'
 alias pack="nvim ~/.config/nvim/pack/nvim-plugins/start/run-me.sh"
 alias nvimconfig="nvim ~/.config/nvim/init.lua"
-alias russian="cd '/Users/jf732h/Google Drive/My Drive/Russian/Pimsleur - Russian III'"
+alias russian="cd '/Users/javier/Google Drive/My Drive/Russian/Pimsleur - Russian III'"
