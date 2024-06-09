@@ -13,6 +13,8 @@
 !.tmux-cygwin.conf
 !.tmux-linux.conf
 !.conkyrc
+!.scripts
+!.scripts/*
 # these two below do not work need to move to new nvim structure
 !.config/nvim/init.vim
 !.config/awesome/rc.lua
