@@ -104,13 +104,6 @@ lfcd () {
 bindkey -s '^o' 'lfcd\n'
 
 
-# Install npm packages globally without sudo on OS X and Linux
-NPM_PACKAGES="${HOME}/.npm-packages"
-NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-PATH="$NPM_PACKAGES/bin:$PATH"
-
-# LunarVim
-export PATH=/Users/javier/.local/bin:$PATH
 
 #######################################################################
 #                               ctrl-e                                #
@@ -126,6 +119,36 @@ bindkey '^R' history-incremental-search-backward
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.alias" ] && source "$HOME/.alias"
+
+#######################################################################
+#                              zsh-completions                        #
+#######################################################################
+# https://github.com/zsh-users/zsh-completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+  # The <(...) syntax is called process substitution.
+  # It runs the command inside (...),
+  # then treats the output as if it were a file and sources it.
+  source <(kubectl completion zsh)
+  source <(minikube completion zsh)
+  source <(docker completion zsh)
+  source <(chezmoi completion zsh)
+fi
+
+
+#################################################
+# Confgirations specific to individual computer #
+#################################################
+# LunarVim
+export PATH=/Users/javier/.local/bin:$PATH
+
+# Install npm packages globally without sudo on OS X and Linux
+NPM_PACKAGES="${HOME}/.npm-packages"
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+PATH="$NPM_PACKAGES/bin:$PATH"
 
 #######################################################################
 #                                conda                                #
@@ -174,32 +197,22 @@ function getenm() {
     fi
 }
 
-#######################################################################
-#                              zsh-completions                        #
-#######################################################################
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-  source <(kubectl completion zsh)
-  source <(minikube completion zsh)
-  source <(docker completion zsh)
-fi
 
 #######################################################################
 #                              Scripts                                #
 #######################################################################
 export PATH="/Users/javier/.scripts:$PATH"
-
+export EDITOR="_editor.sh"
+export VISUAL="$EDITOR"
 #######################################################################
 #                  editor function for best vim                       #
 #######################################################################
-source $HOME/.scripts/editor.sh
+# source $HOME/.scripts/editor.sh
 
 #######################################################################
 #                       zsh-syntax-highlighting                       #
 #######################################################################
 #Load zsh-syntax-highlighting; should be last.
 #                              Functions                              #
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -12,3 +12,5 @@ editor() {
         vi "$@"
     fi
 }
+
+editor "$@"
