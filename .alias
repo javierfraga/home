@@ -69,6 +69,7 @@ alias onenote-me='for i in *; do printf "\n$i">> onenote; echo >> onenote; cat "
 alias gits='git status'
 alias gita='git add'
 alias gitc='git checkout'
+alias gitcb='git checkout -b'
 alias gitd='git diff'
 alias gitdcsv='git diff --word-diff-regex="[^,]+"'
 alias gitb='git branch -vva'
@@ -132,3 +133,50 @@ alias lunchlearn='cd "/Users/jf732h/OneDrive - AT&T Services, Inc/Documents - Ta
 alias pack="$EDITOR ~/.config/nvim/pack/nvim-plugins/start/run-me.sh"
 alias nvimconfig="$EDITOR ~/.config/nvim/init.lua"
 alias russian="cd '/Users/javier/Google Drive/My Drive/Russian/Pimsleur - Russian III'"
+alias heredoc="cat << 'EOF' >"
+alias dc='docker compose'
+alias es="cd /Users/javier/es-en-dict/ &&  wine ./gdo.exe"
+# youtube-dl https://hub.docker.com/r/mikenye/youtube-dl
+# When run (eg: yt-dl <video_url>), it will download the video to the current working directory, 
+# and take any command line arguments that the normal youtube-dl binary would.
+alias yt-dl='docker run \
+                  --rm -i \
+                  -e PGID=$(id -g) \
+                  -e PUID=$(id -u) \
+                  -v "$(pwd)":/workdir:rw \
+                  ghcr.io/mikenye/docker-youtube-dl:latest'
+# run command: `markdownit < input.pdf > output.md`
+alias markitdown='docker run \
+                  --rm \
+                  --interactive \
+                  --env PGID=$(id -g) \
+                  --env PUID=$(id -u) \
+                  --volume "$(pwd)":/workdir:rw \
+                  javierfraga/markitdown:latest \
+                  markitdown'
+alias lvim-arch='docker run \
+  --platform linux/amd64 \
+  --volume "${PWD}:/home/lunaruser/workspace" \
+  --workdir /home/lunaruser/workspace \
+  --interactive \
+  --tty \
+  --rm \
+  javierfraga/img-lvim-arch:latest'
+alias lvim-ubuntu='docker run \
+  --volume "${PWD}:/home/lunaruser/workspace" \
+  --workdir /home/lunaruser/workspace \
+  --interactive \
+  --tty \
+  --rm \
+  javierfraga/img-lvim-ubuntu:latest'
+alias lvim-docker='docker run \
+  --volume "${PWD}:/home/lunaruser/workspace" \
+  --workdir /home/lunaruser/workspace \
+  --interactive \
+  --tty \
+  --rm \
+  javierfraga/img-lvim-alpine:latest'
+# Usage: dockerssh <cntr-name> <program>
+# e.g. dockerssh cntr-ubuntu zsh
+alias dockerssh='docker exec --interactive --tty'
+alias whisper-cleanup='rm *.json *.tsv *.vtt'
