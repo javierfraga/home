@@ -145,29 +145,6 @@ fi
 # LunarVim
 export PATH=/Users/javier/.local/bin:$PATH
 
-# Install npm packages globally without sudo on OS X and Linux
-NPM_PACKAGES="${HOME}/.npm-packages"
-NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-PATH="$NPM_PACKAGES/bin:$PATH"
-
-#######################################################################
-#                                conda                                #
-#######################################################################
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 #######################################################################
 #                              neovim / nvim                          #
 #######################################################################
@@ -179,35 +156,12 @@ export PATH="/Users/javier/nvim-macos-arm64-v0.10.0/bin:$PATH"
 export PATH="/Users/javier/selenium:$PATH"
 
 #######################################################################
-#                                 NVM                                 #
-#######################################################################
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-#######################################################################
-#                              Functions                              #
-#######################################################################
-function getenm() {
-    if [ -z "$1" ]; then
-        echo "Missing node argument to search for"
-    else
-        csvfile=$(lynx -dump http://155.165.129.44/LabConfigs/EricssonLabConfig/ | \grep 'LabConfig-' | tail -n 1 | awk -F' ' '{print $2}')
-        wget -qO- ${csvfile} | awk -F',' '{print $1 "\t" $4}' | sort | uniq | grep -i $1
-    fi
-}
-
-
-#######################################################################
 #                              Scripts                                #
 #######################################################################
 export PATH="/Users/javier/.scripts:$PATH"
-export EDITOR="_editor.sh"
+# Default best  vi editor available
+export EDITOR=$(command -v lvim || command -v nvim || command -v vim || command -v vi)
 export VISUAL="$EDITOR"
-#######################################################################
-#                  editor function for best vim                       #
-#######################################################################
-# source $HOME/.scripts/editor.sh
 
 #######################################################################
 #                       zsh-syntax-highlighting                       #
