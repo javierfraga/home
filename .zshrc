@@ -114,26 +114,11 @@ bindkey '^e' edit-command-line
 #######################################################################
 bindkey '^R' history-incremental-search-backward
 
-# Load aliases and shortcuts if existent.
+#######################################################################
+#                                ALIAS                                #
+#######################################################################
 [ -f "$HOME/.alias" ] && source "$HOME/.alias"
 
-#######################################################################
-#                              zsh-completions                        #
-#######################################################################
-# https://github.com/zsh-users/zsh-completions
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-  # The <(...) syntax is called process substitution.
-  # It runs the command inside (...),
-  # then treats the output as if it were a file and sources it.
-  source <(kubectl completion zsh)
-  source <(minikube completion zsh)
-  source <(docker completion zsh)
-  source <(chezmoi completion zsh)
-fi
 
 
 # Begin Confgirations specific to individual computer #
@@ -168,6 +153,35 @@ export VISUAL="$EDITOR"
 #...................................................... #
 #   End Confgirations specific to individual computer   #
 
+
+#######################################################################
+#                              zsh-completions                        #
+#######################################################################
+# https://github.com/zsh-users/zsh-completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+  # The <(...) syntax is called process substitution.
+  # It runs the command inside (...),
+  # then treats the output as if it were a file and sources it.
+  source <(kubectl completion zsh)
+  source <(minikube completion zsh)
+  source <(docker completion zsh)
+  source <(chezmoi completion zsh)
+fi
+
+#######################################################################
+#                                 Chezmoi                             #
+#######################################################################
+ch() {
+    chezmoi "$@"
+}
+# Ensure completion is correctly assigned
+if [[ -n ${functions[_chezmoi]} ]]; then
+    compdef ch=chezmoi
+fi
 
 # MUST BE AT END
 #######################################################################
