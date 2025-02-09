@@ -87,7 +87,6 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-
 #######################################################################
 #                               ctrl-o                                #
 #######################################################################
@@ -102,8 +101,6 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
-
-
 
 #######################################################################
 #                               ctrl-e                                #
@@ -139,10 +136,12 @@ if type brew &>/dev/null; then
 fi
 
 
-#################################################
-# Confgirations specific to individual computer #
-#################################################
-# LunarVim
+# Begin Confgirations specific to individual computer #
+# ................................................... #
+
+#######################################################################
+#                              LunarVim                               #
+#######################################################################
 export PATH=/Users/javier/.local/bin:$PATH
 
 #######################################################################
@@ -159,10 +158,18 @@ export PATH="/Users/javier/selenium:$PATH"
 #                              Scripts                                #
 #######################################################################
 export PATH="/Users/javier/.scripts:$PATH"
-# Default best  vi editor available
+
+#######################################################################
+#                     Default best  vi editor available               #
+#######################################################################
 export EDITOR=$(command -v lvim || command -v nvim || command -v vim || command -v vi)
 export VISUAL="$EDITOR"
 
+#...................................................... #
+#   End Confgirations specific to individual computer   #
+
+
+# MUST BE AT END
 #######################################################################
 #                       zsh-syntax-highlighting                       #
 #######################################################################
